@@ -56,7 +56,7 @@ body {
 @keyframes heartbeat { 0%,100%{transform:scale(1);}14%{transform:scale(1.1);}28%{transform:scale(1);}42%{transform:scale(1.1);}70%{transform:scale(1);} }
 @keyframes shine { 0%{transform:translateX(-100%) rotate(25deg);}100%{transform:translateX(100%) rotate(25deg);} }
 .button-container { display:flex; justify-content:flex-start; padding-left:10px; }
-.minecraft-btn { position:relative; margin: 10px 0 0 10px; display:inline-flex; align-items:center; justify-content:center; padding:10px 60px 10px 20px; font-size:14px; font-weight:900; color:white; border-radius:15px; box-shadow:0 6px 12px rgba(0,0,0,0.5); cursor:pointer; gap:16px; overflow:hidden; background: linear-gradient(135deg,#1a3e0d,#32860d) padding-box, linear-gradient(135deg,#ff4500,#ff9800) border-box; border:2px solid transparent; text-shadow:2px 2px 6px rgba(0,0,0,0.7); transition: transform 0.3s ease, all 0.35s ease; text-decoration:none; }
+.minecraft-btn { position:relative; margin: 10px 0 0 15px; display:inline-flex; align-items:center; justify-content:center; padding:10px 60px 10px 20px; font-size:14px; font-weight:900; color:white; border-radius:15px; box-shadow:0 6px 12px rgba(0,0,0,0.5); cursor:pointer; gap:16px; overflow:hidden; background: linear-gradient(135deg,#1a3e0d,#32860d) padding-box, linear-gradient(135deg,#ff4500,#ff9800) border-box; border:2px solid transparent; text-shadow:2px 2px 6px rgba(0,0,0,0.7); transition: transform 0.3s ease, all 0.35s ease; text-decoration:none; }
 .minecraft-btn:hover { transform: scale(1.05); }
 .minecraft-btn::after { content:""; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:linear-gradient(120deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%); transform:rotate(25deg); animation:shine 3s infinite; pointer-events:none; }
 .minecraft-text { display:inline-block; width:100%; text-align:center; transition: opacity 0.3s ease; }
@@ -217,11 +217,84 @@ body {
 .cookie-notice button:hover {
   transform: scale(1.05);
 }
+
+.menu-btn {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  margin: 22px 0 0 5px;
+  z-index: 1001;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.menu-btn span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+.menu-btn:hover {
+  transform: scale(1.05);
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 220px;
+  height: 100%;
+  background: linear-gradient(135deg,#32860d,#1a3e0d);
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.6);
+}
+
+.side-menu a {
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+  text-align: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.side-menu a:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.18);
+}
+
+.side-menu.open {
+  left: 0;
+}
 </style>
 </head>
 <body>
 
 <div class="button-container">
+  <div class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="side-menu" id="sideMenu">
+    <a href="/rules">ПРАВИЛА</a>
+    <a href="/news/index.html">НОВОСТИ</a>
+  </div>
+
   <div class="minecraft-btn" id="addBtn">
     <span class="minecraft-text">ДОБАВИТЬ СЕРВЕР</span>
     <button class="copy-btn" id="copyBtn" type="button">
@@ -544,6 +617,21 @@ window.addEventListener('load', () => {
 cookieAcceptBtn.addEventListener('click', () => {
   localStorage.setItem('cookieAccepted', 'true');
   cookieNotice.classList.remove('show');
+});
+
+
+
+const menuBtn = document.getElementById('menuBtn');
+const sideMenu = document.getElementById('sideMenu');
+
+menuBtn.addEventListener('click', () => {
+  sideMenu.classList.toggle('open');
+});
+
+document.addEventListener('click', (e) => {
+  if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+    sideMenu.classList.remove('open');
+  }
 });
 </script>
 
