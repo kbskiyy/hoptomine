@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="hoptomine - Обновлённые анархии и уют...">
+<meta name="keywords" content="minecraft сервер, minecraft pe сервер, hoptomine, майнкрафт сервер, minecraft bedrock сервер">
+<title>HOPTOMINE</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+<style>
+body { margin:0; font-family: 'Montserrat', sans-serif; }
+.server-status { font-weight: 900; font-size: 13px; margin: 0 0 0 25px; letter-spacing: 0.3px; text-shadow: 0 0 8px rgba(204,50,0,0.7); }
+.online-text, .offline-text, .checking-text { background: linear-gradient(135deg, #cc0028, #ff6500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; text-shadow: 0 0 8px rgba(204,50,0,0.7); display:inline-block; }
+.checking-text::after { content: ''; display:inline-block; width:1ch; animation: dots 1.5s steps(5,end) infinite; }
+@keyframes dots { 0%,30%{content:'';} 60%{content:'.';} 90%{content:'..';} 99%{content:'...';} 100%{content:'';} }
+.server-progress-bg { width: 65%; height: 8px; margin: 8px 0 16px 20px; background: rgba(0,0,0,0.25); border-radius: 10px; overflow: hidden; position: relative; backdrop-filter: blur(4px); box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
+.server-progress-border { display: none; }
+.server-progress-fill { height: 100%; width: 0%; background: #32860d; border-radius: 10px; transition: width 0.5s ease-in-out; position: relative; overflow: hidden; }
+.server-title-wrapper { position: relative; display: inline-block; }
+.server-title { font-weight: 900; font-size: 42px; color: white; margin: 0 0 0 5px; text-shadow: 4px 4px 12px rgba(0,0,0,0.7), 2px 2px 8px rgba(0,0,0,0.5); display: inline-block; position: relative; }
+.form-title {
+  margin: 0 0 0 20px;
+  padding: 3px;
+  min-height: 5px;
+  width: 95%;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ff6f00, #ff0000);
+  border: 2px solid white;
+  display: block;
+  align-items: center;
+  box-shadow:0 6px 12px rgba(0,0,0,0.5);
+}
+.about-text { background: none; -webkit-text-fill-color: white; margin: 0 0 0 20; font-weight:900; font-size:12px; text-shadow:1px 1px 3px rgba(0,0,0,0.5); display:block; }
+.telegram-on-title { position: absolute; right: -18px; top: -16px; transform: rotate(4deg) skewY(2deg); z-index: 10; }
+.telegram-btn { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 12px; background: linear-gradient(135deg, #FFD700, #FF4500); border: 2px solid white; box-shadow: 0 0 4px rgba(255, 255, 255, 0.3), 0 0 8px rgba(255, 255, 255, 0.2); text-decoration: none; cursor: pointer; animation: heartbeat 1.5s infinite; position: relative; overflow: hidden; transition: transform 0.3s ease; }
+.telegram-btn:hover { transform: scale(1.05); }
+.telegram-btn::after { content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(120deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%); transform: rotate(25deg); animation: shine 3s infinite; pointer-events: none; }
+.telegram-btn img { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+.telegram-text { font-weight: 900; font-size: 12px; color: white; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
+@keyframes heartbeat { 0%,100%{transform:scale(1);}14%{transform:scale(1.1);}28%{transform:scale(1);}42%{transform:scale(1.1);}70%{transform:scale(1);} }
+@keyframes shine { 0%{transform:translateX(-100%) rotate(25deg);}100%{transform:translateX(100%) rotate(25deg);} }
+.button-container { display:flex; justify-content:flex-start; padding-left:10px; }
+.minecraft-btn { position:relative; margin: 10px 0 0 10px; display:inline-flex; align-items:center; justify-content:center; padding:10px 60px 10px 20px; font-size:14px; font-weight:900; color:white; border-radius:15px; box-shadow:0 6px 12px rgba(0,0,0,0.5); cursor:pointer; gap:16px; overflow:hidden; background: linear-gradient(135deg,#1a3e0d,#32860d) padding-box, linear-gradient(135deg,#ff4500,#ff9800) border-box; border:2px solid transparent; text-shadow:2px 2px 6px rgba(0,0,0,0.7); transition: transform 0.3s ease, all 0.35s ease; text-decoration:none; }
+.minecraft-btn:hover { transform: scale(1.05); }
+.minecraft-btn::after { content:""; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:linear-gradient(120deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%); transform:rotate(25deg); animation:shine 3s infinite; pointer-events:none; }
+.minecraft-text { display:inline-block; width:100%; text-align:center; transition: opacity 0.3s ease; }
+.copy-btn { position:absolute; right:8px; top:50%; transform:translateY(-50%); height:78%; aspect-ratio:1; min-width:35px; border-radius:12px; border:none; background:linear-gradient(135deg,#f44336,#ff9800); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out; box-shadow:0 4px 12px rgba(0,0,0,0.6); }
+.copy-btn img { width:18px; height:18px; filter:brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.7)); }
+.copy-btn:active { box-shadow:0 2px 6px rgba(0,0,0,0.8) inset; transform:scale(0.85); }
+.site-footer { font-weight:900; font-size:10px; color:white; text-align:center; padding:28px 0 24px 0; text-shadow:0 3px 6px rgba(0,0,0,0.6),0 0 2px rgba(0,0,0,0.05); background:rgba(0,0,0,.28); backdrop-filter:blur(6px); border-top:2px solid rgba(255,255,255,.22); box-shadow:0 4px 16px rgba(0,0,0,.4); letter-spacing:0.4px; margin-top:20px; }
+.hopto-gradient {
+    background: linear-gradient(135deg,#33bd0d,#6fff24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    text-decoration: none;
+}
+.donates-title {
+  font-weight: 900;
+  font-size: 26px;
+  color: white;
+  margin: 20px 0 4px 25px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6), 0 4px 8px rgba(0,0,0,0.5);
+  text-align: left;
+}
+
+.donates-underline {
+  width: calc(100% - 40px);
+  height: 4px;
+  margin: 0 20px 0 20px;
+  background: white;
+  border-radius: 9px;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.3), 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.donates-list {
+  list-style: none;
+  padding: 0 20px;
+  margin: 0;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  line-height: 1.6em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+.donate-item { 
+  margin: 10px 0 10px 0; 
+  padding: 12px 16px; 
+  border-radius: 30px; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  background: rgba(255, 255, 255, 0.08); 
+  border: 2px solid transparent; 
+}
+
+.fly { border-color: #006680; }
+.garnet { border-color: #004d40; }
+.beta { border-color: #b34700; }
+.alpha { border-color: #7f2200; }
+.ultra { border-color: #7a0e0e; }
+.apocalypse { border-color: #2c0a3a; }
+
+.fly .donate-rank { background: linear-gradient(135deg, #00cfff, #0099cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 4px rgba(0,0,0,0.6);}
+.garnet .donate-rank { background: linear-gradient(135deg, #008080, #00664d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 4px rgba(0,0,0,0.6);}
+.beta .donate-rank { background: linear-gradient(135deg, #ff9800, #ff5722); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 4px rgba(0,0,0,0.6);}
+.alpha .donate-rank { background: linear-gradient(135deg, #e65100, #bf360c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 4px rgba(0,0,0,0.6);}
+.ultra .donate-rank { background: linear-gradient(135deg, #f44336, #b71c1c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 4px rgba(0,0,0,0.6);}
+.apocalypse .donate-rank { background: linear-gradient(135deg, #9c27b0, #4a148c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 4px rgba(0,0,0,0.6);}
+
+.info-btn-container { margin-top: 8px; display: flex; justify-content: flex-start; }
+.info-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  color: white;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.25), 0 12px 36px rgba(0,0,0,0.2);
+  cursor: pointer;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.info-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35), 0 12px 28px rgba(0,0,0,0.3);
+}
+
+.fly-btn { background: linear-gradient(135deg, #00cfff, #0099cc); border: 2px solid #006680; }
+.garnet-btn { background: linear-gradient(135deg, #008080, #00664d); border: 2px solid #004d40; }
+.beta-btn { background: linear-gradient(135deg, #ff9800, #ff5722); border: 2px solid #b34700; }
+.alpha-btn { background: linear-gradient(135deg, #e65100, #bf360c); border: 2px solid #7f2200; }
+.ultra-btn { background: linear-gradient(135deg, #f44336, #b71c1c); border: 2px solid #7a0e0e; }
+.apocalypse-btn { background: linear-gradient(135deg, #9c27b0, #4a148c); border: 2px solid #2c0a3a; }
+
+.donate-info { display: none; margin-top: 8px; padding: 12px; background: rgba(0,0,0,0.4); border-radius: 15px; font-size: 14px; font-weight: 600; line-height: 1.5em; text-shadow: 0 1px 2px rgba(0,0,0,0.6);}
+.donate-info h3 { margin: 0 0 8px 0; font-size: 18px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
+.online {
+    margin: 20px 0 0 30px;
+    width: 38%;
+    border-left: 6px solid #ff1c1c;
+    border-radius: 7px;
+    background: linear-gradient(
+  90deg,
+  rgba(0, 0, 0, 0.342) 100%
+);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.online:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.7);
+}
+.cookie-notice {
+  position: fixed;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.35);
+  top: 260px;
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 350px;
+  width: 80%;
+  padding: 16px 20px;
+  background: rgba(17, 90, 7, 0.95);
+  border: 2px solid white;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+  color: white;
+  font-weight: 900;
+  font-size: 13px;
+  text-align: center;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translate(-50%, 50px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+.cookie-notice.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+.cookie-notice button {
+  align-self: center;
+  padding: 8px 22px;
+  font-weight: 900;
+  font-size: 12px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg,#ff6f00,#ff0000);
+  border: 2px solid white;
+  border-radius: 15px;
+  cursor: pointer;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  transition: transform 0.25s ease;
+}
+.cookie-notice button:hover {
+  transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<div class="button-container">
+  <div class="minecraft-btn" id="addBtn">
+    <span class="minecraft-text">ДОБАВИТЬ СЕРВЕР</span>
+    <button class="copy-btn" id="copyBtn" type="button">
+      <img src="https://images.icon-icons.com/934/PNG/512/copy-black-square-symbol_icon-icons.com_73058.png">
+    </button>
+  </div>
+</div>
+
+<div style="height:100px;"></div>
+<div class="online">
+<div id="serverStatus" class="server-status"><span class="checking-text">● проверка</span></div>
+</div>
+<div class="server-progress-bg">
+  <div class="server-progress-border"></div>
+  <div class="server-progress-fill" id="serverProgress"></div>
+</div>
+
+<div class="server-title-wrapper">
+    <h1 class="server-title">HOPTOMINE</h1>
+  <div class="telegram-on-title">
+    <a href="https://t.me/hoptomine" target="_blank" class="telegram-btn" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
+      <span class="telegram-text">HOPTOMINE</span>
+    </a>
+  </div>
+  <form class="form-title">
+    <span class="about-text">Обновлённые анархии и уют...</span>
+  </form>
+</div>
+
+<div class="cookie-notice" id="cookieNotice">
+  Наш сайт использует файлы cookies для корректной работы и безопасности... Продолжая использование сайта, вы соглашаетесь с их использованием...
+  <button id="cookieAcceptBtn">ПОНЯТНО</button>
+</div>
+
+<h1 class="donates-title">ДОНАТЫ - HM</h1>
+<div class="donates-underline"></div>
+
+<ul class="donates-list expanded">
+  <li class="donate-item fly">
+    <span class="donate-rank">FLY -</span> информация
+    <div class="info-btn-container">
+      <button class="info-btn fly-btn" onclick="toggleInfo('fly')">ИНФОРМАЦИЯ</button>
+    </div>
+    <div class="donate-info" id="fly">
+      <h3>ДОНАТ - <span class="donate-rank">FLY</span></h3>
+      Новые возможности...
+      <ul>
+        <li>Команда - /fly</li>
+        <li>Установка 3 точек домов - /home</li>
+        <li>Набор FLY - /kit</li>
+        <li>Установка 1 игрового варпа - /warps</li>
+        <li>Установка 5 игровых регионов - /rg create</li>
+        <li>Специальная ежедневная награда - /reward</li>
+      </ul>
+    </div>
+  </li>
+  <li class="donate-item garnet">
+    <span class="donate-rank">GARNET -</span> информация
+    <div class="info-btn-container">
+      <button class="info-btn garnet-btn" onclick="toggleInfo('garnet')">ИНФОРМАЦИЯ</button>
+    </div>
+    <div class="donate-info" id="garnet">
+      <h3>ДОНАТ - <span class="donate-rank">GARNET</span></h3>
+      Новые возможности...
+      <ul>
+        <li>Команда - /fly</li>
+        <li>Команда - /enderchest</li>
+        <li>Команда - /nvision</li>
+        <li>Установка 6 точек домов - /home</li>
+        <li>Набор GARNET - /kit</li>
+        <li>Установка 3 игровых варпов - /warps</li>
+        <li>Установка 7 игровых регионов - /rg create</li>
+        <li>Специальная ежедневная награда - /reward</li>
+      </ul>
+    </div>
+  </li>
+  <li class="donate-item beta">
+    <span class="donate-rank">BETA -</span> информация
+    <div class="info-btn-container">
+      <button class="info-btn beta-btn" onclick="toggleInfo('beta')">ИНФОРМАЦИЯ</button>
+    </div>
+    <div class="donate-info" id="beta">
+      <h3>ДОНАТ - <span class="donate-rank">BETA</span></h3>
+      Новые возможности...
+      <ul>
+        <li>Команда - /fly</li>
+        <li>Команда - /enderchest</li>
+        <li>Команда - /nvision</li>
+        <li>Команда - /id</li>
+        <li>Команда - /feed</li>
+        <li>Команда - /back</li>
+        <li>Команда - /pauk</li>
+        <li>Установка 9 точек домов - /home</li>
+        <li>Набор BETA - /kit</li>
+        <li>Установка 5 игровых варпов - /warps</li>
+        <li>Установка 10 игровых регионов - /rg create</li>
+        <li>Специальная ежедневная награда - /reward</li>
+      </ul>
+    </div>
+  </li>
+  <li class="donate-item alpha">
+    <span class="donate-rank">ALPHA -</span> информация
+    <div class="info-btn-container">
+      <button class="info-btn alpha-btn" onclick="toggleInfo('alpha')">ИНФОРМАЦИЯ</button>
+    </div>
+    <div class="donate-info" id="alpha">
+      <h3>ДОНАТ - <span class="donate-rank">ALPHA</span></h3>
+      Новые возможности...
+      <ul>
+        <li>Команда - /fly</li>
+        <li>Команда - /enderchest</li>
+        <li>Команда - /nvision</li>
+        <li>Команда - /id</li>
+        <li>Команда - /feed</li>
+        <li>Команда - /back</li>
+        <li>Команда - /pauk</li>
+        <li>Команда - /heal</li>
+        <li>Команда - /near</li>
+        <li>Установка 11 точек домов - /home</li>
+        <li>Набор ALPHA - /kit</li>
+        <li>Установка 7 игровых варпов - /warps</li>
+        <li>Установка 15 игровых регионов - /rg create</li>
+        <li>Специальная ежедневная награда - /reward</li>
+      </ul>
+    </div>
+  </li>
+  <li class="donate-item ultra">
+    <span class="donate-rank">ULTRA -</span> информация
+    <div class="info-btn-container">
+      <button class="info-btn ultra-btn" onclick="toggleInfo('ultra')">ИНФОРМАЦИЯ</button>
+    </div>
+    <div class="donate-info" id="ultra">
+      <h3>ДОНАТ - <span class="donate-rank">ULTRA</span></h3>
+      Новые возможности...
+      <ul>
+        <li>Команда - /fly</li>
+        <li>Команда - /enderchest</li>
+        <li>Команда - /nvision</li>
+        <li>Команда - /id</li>
+        <li>Команда - /feed</li>
+        <li>Команда - /back</li>
+        <li>Команда - /pauk</li>
+        <li>Команда - /heal</li>
+        <li>Команда - /near</li>
+        <li>Команда - /xaker</li>
+        <li>Команда - /clearinv</li>
+        <li>Команда - /vanish</li>
+        <li>Команда - /djan</li>
+        <li>Команда - /repair hand</li>
+        <li>Установка 15 точек домов - /home</li>
+        <li>Набор ULTRA - /kit</li>
+        <li>Установка 10 игровых варпов - /warps</li>
+        <li>Установка 20 игровых регионов - /rg create</li>
+        <li>Специальная ежедневная награда - /reward</li>
+      </ul>
+    </div>
+  </li>
+  <li class="donate-item apocalypse">
+    <span class="donate-rank">APOCALYPSE -</span> информация
+    <div class="info-btn-container">
+      <button class="info-btn apocalypse-btn" onclick="toggleInfo('apocalypse')">ИНФОРМАЦИЯ</button>
+    </div>
+    <div class="donate-info" id="apocalypse">
+      <h3>ДОНАТ - <span class="donate-rank">APOCALYPSE</span></h3>
+      Новые возможности...
+      <ul>
+        <li>Команда - /fly</li>
+        <li>Команда - /enderchest</li>
+        <li>Команда - /nvision</li>
+        <li>Команда - /id</li>
+        <li>Команда - /feed</li>
+        <li>Команда - /back</li>
+        <li>Команда - /pauk</li>
+        <li>Команда - /heal</li>
+        <li>Команда - /near</li>
+        <li>Команда - /xaker</li>
+        <li>Команда - /clearinv</li>
+        <li>Команда - /vanish</li>
+        <li>Команда - /djan</li>
+        <li>Команда - /repair hand</li>
+        <li>Команда - /repair all</li>
+        <li>Команда - /setday</li>
+        <li>Команда - /reklama &lt; сообщение &gt;</li>
+        <li>Установка 23 точек домов - /home</li>
+        <li>Набор APOCALYPSE - /kit</li>
+        <li>Установка 15 игровых варпов - /warps</li>
+        <li>Установка 25 игровых регионов - /rg create</li>
+        <li>Специальная ежедневная награда - /reward</li>
+        <li>Анти - спам сообщениями не действует на вас</li>
+        <li>Возможность видеть игроков в ванише</li>
+        <li>Возможность прямо отправлять сообщения в глобальный чат</li>
+      </ul>
+    </div>
+  </li>
+</ul>
+
+<footer class="site-footer">
+  <p>
+    © 2026 <span class="hopto-gradient">HOPTO</span>MINE<br>
+    Все права защищены.<br><br>
+    - <span class="hopto-gradient">HOPTO</span>MINE не связан с Mojang Studios или Microsoft.<br>
+    - Нарушения караются блокировкой без предупреждения.<br>
+    <a class="hopto-gradient" href="https://hoptomine.xyz/privacy">Политика конфиденциальности</a><br>
+    <a class="hopto-gradient" href="https://hoptomine.xyz/terms">Пользовательское соглашение</a><br>
+    <a class="hopto-gradient" href="https://hoptomine.xyz/rules">Правила сервера</a><br><br>
+  </p>
+</footer>
+
+<div style="height:240px;"></div>
+
+<script>
+function toggleInfo(id) {
+  const el = document.getElementById(id);
+  if (el.style.display === "block") {
+    el.style.display = "none";
+  } else {
+    document.querySelectorAll('.donate-info').forEach(e => e.style.display = "none");
+    el.style.display = "block";
+  }
+}
+
+document.getElementById("addBtn").addEventListener("click", () => {
+  window.location.href = "minecraft:///?addExternalServer=ＨＯＰＴＯＭＩＮＥ|mc.hoptomine.xyz:19133";
+});
+
+const copyBtn = document.getElementById('copyBtn');
+const minecraftBtn = document.getElementById('addBtn');
+const textSpan = minecraftBtn.querySelector('.minecraft-text');
+const ANIMATION_DURATION = 3000;
+
+copyBtn.addEventListener('click', function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  const text = 'mc.hoptomine.xyz:19133';
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showCopyFeedback();
+    }).catch(() => { fallbackCopy(text); });
+  } else {
+    fallbackCopy(text);
+  }
+});
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.left = '-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    showCopyFeedback();
+  } catch {}
+  document.body.removeChild(ta);
+}
+
+function showCopyFeedback() {
+  const originalText = textSpan.textContent;
+  textSpan.style.opacity = '0';
+  setTimeout(() => {
+    textSpan.textContent = 'СКОПИРОВАНО';
+    textSpan.style.opacity = '1';
+  }, 150);
+  setTimeout(() => {
+    textSpan.style.opacity = '0';
+    setTimeout(() => {
+      textSpan.textContent = originalText;
+      textSpan.style.opacity = '1';
+    }, 150);
+  }, ANIMATION_DURATION);
+}
+
+async function checkServer() {
+  const statusEl = document.getElementById("serverStatus");
+  const progressEl = document.getElementById("serverProgress");
+  const ip = "mc.hoptomine.xyz";
+  const port = 19133;
+  const maxPlayers = 19999;
+
+  statusEl.innerHTML = '<span class="checking-text">● проверка</span>';
+
+  await new Promise(r => setTimeout(r, 2000));
+
+  try {
+    const res = await fetch(`https://api.mcstatus.io/v2/status/bedrock/${ip}:${port}`);
+    const data = await res.json();
+
+    let online = 0;
+
+    if (data && data.online) {
+      online = data.players?.online || 0;
+      statusEl.innerHTML = `<span class="online-text">● онлайн - ${online} / ${maxPlayers}</span>`;
+    } else {
+      statusEl.innerHTML = `<span class="offline-text">● оффлайн</span>`;
+    }
+
+    const percent = Math.min(Math.max((online / maxPlayers) * 100, 2), 100);
+    progressEl.style.width = percent + "%";
+
+  } catch {
+    statusEl.innerHTML = `<span class="offline-text">● оффлайн</span>`;
+    progressEl.style.width = "0%";
+  }
+}
+
+checkServer();
+setInterval(checkServer, 60000);
+
+const cookieNotice = document.getElementById('cookieNotice');
+const cookieAcceptBtn = document.getElementById('cookieAcceptBtn');
+
+window.addEventListener('load', () => {
+  if (!localStorage.getItem('cookieAccepted')) {
+    cookieNotice.classList.add('show');
+  }
+});
+
+cookieAcceptBtn.addEventListener('click', () => {
+  localStorage.setItem('cookieAccepted', 'true');
+  cookieNotice.classList.remove('show');
+});
+</script>
+
+<div style="height: 2000px;"></div>
+
+</body>
+</html>
