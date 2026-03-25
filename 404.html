@@ -60,6 +60,8 @@ body {
   transform: scale(1.05);
 }
 
+.site-footer { font-weight:900; font-size:10px; color:white; text-align:center; padding:28px 0 24px 0; text-shadow:0 3px 6px rgba(0,0,0,0.6),0 0 2px rgba(0,0,0,0.05); background:rgba(0,0,0,.28); backdrop-filter:blur(6px); border-top:2px solid rgba(255,255,255,.22); box-shadow:0 4px 16px rgba(0,0,0,.4); letter-spacing:0.4px; margin-top:20px; }
+
 .cookie-notice {
   position: fixed;
   text-shadow: 0 1px 2px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.35);
@@ -154,6 +156,18 @@ body {
   <div class="subtitle">СТРАНИЦА НЕ НАЙДЕНА</div>
   <a href="/" class="btn">ГЛАВНАЯ СТРАНИЦА</a>
 </div>
+
+<footer class="site-footer">
+  <p>
+    © 2026 <span class="hopto-gradient">HOPTO</span>MINE<br>
+    Все права защищены.<br><br>
+    - <span class="hopto-gradient">HOPTO</span>MINE не связан с Mojang Studios или Microsoft.<br>
+    - Нарушения караются блокировкой без предупреждения.<br>
+    <a class="hopto-gradient" href="/privacy/">Политика конфиденциальности</a><br>
+    <a class="hopto-gradient" href="/terms/">Пользовательское соглашение</a><br>
+    <a class="hopto-gradient" href="/rules/">Правила сервера</a><br><br>
+  </p>
+</footer>
 
 <script>
 const cookieNotice = document.getElementById('cookieNotice');
