@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 <style>
 body {
-  margin-top: 180px;
+  margin-top: 140px;
   padding: 8px;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
@@ -293,16 +293,28 @@ body {
 }
 
 .top-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 60px;
+  align-items: center;
 }
 
 .top-banner img {
-  width: auto;
+  width: 50%;
+  max-width: 300px;
   height: auto;
-  max-width: 90%;
-  max-height: 180px;
-  display: block;
+}
+
+@media (max-width: 600px) {
+  .top-banner img {
+    width: 95%;
+    max-width: 350px;
+  }
 }
 </style>
 </head>
