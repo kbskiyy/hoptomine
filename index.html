@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 <style>
 body {
+  margin-top: 180px;
   padding: 8px;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
@@ -234,7 +235,7 @@ body {
   justify-content: space-between;
 
   cursor: pointer;
-  z-index: 1001;
+  z-index: 10000;
 
   margin: 0;
 
@@ -266,7 +267,7 @@ body {
   flex-direction: column;
   gap: 10px;
   transition: left 0.3s ease;
-  z-index: 1000;
+  z-index: 10000;
   box-shadow: 4px 0 20px rgba(0,0,0,0.6);
 }
 
@@ -290,9 +291,29 @@ body {
 .side-menu.open {
   left: 0;
 }
+
+.top-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.top-banner img {
+  width: 20%;
+  height: 10%;
+  object-fit: cover;
+  display: block;
+  margin-left: 60px;
+}
 </style>
 </head>
 <body>
+
+  <div class="top-banner">
+  <img src="img/banner.png" alt="banner">
+  </div>
 
   <div class="menu-btn" id="menuBtn">
     <span></span>
