@@ -319,13 +319,40 @@ body {
     height: auto;
   }
 }
+
+.header-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.486), rgba(0, 0, 0, 0.562)),
+    linear-gradient(135deg, #cc0028, #ff6500);
+
+  z-index: 8000;
+  pointer-events: none;
+}
+
+.header-bg::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+}
 </style>
 </head>
 <body>
 
-  <div class="top-banner">
+  <div class="header-bg"></div>
+
+<div class="top-banner">
   <img src="img/banner.png" alt="banner">
-  </div>
+</div>
 
   <div class="menu-btn" id="menuBtn">
     <span></span>
