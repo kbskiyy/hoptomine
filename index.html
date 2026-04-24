@@ -337,6 +337,76 @@ body {
   height: 40px;
   background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
 }
+
+.event-box {
+  margin: 20px 0 0 30px;
+  width: 38%;
+  padding: 14px 16px;
+
+  border-radius: 18px;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+
+  border-left: 6px solid #096610;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.event-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.8);
+}
+
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-weight: 900;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.event-title {
+  background: linear-gradient(135deg, #ff6f00, #ff0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.event-status {
+  color: #058d11;
+  text-shadow: 0 0 8px rgba(15, 112, 6, 0.6);
+}
+
+.event-name {
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 6px;
+
+  background: linear-gradient(135deg, #ff3b1c, #ff9800);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.event-desc {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4em;
+
+  color: white;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+.event-footer {
+  font-size: 11px;
+  font-weight: 900;
+
+  color: #ffd27a;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
 </style>
 </head>
 <body>
@@ -358,6 +428,23 @@ body {
     <a href="/rules/">ПРАВИЛА</a>
     <a href="/news/">НОВОСТИ</a>
   </div>
+
+<div class="event-box">
+  <div class="event-header">
+    <span class="event-title">⚔️ ИВЕНТ СЕРВЕРА</span>
+    <span class="event-status">СЕЙЧАС АКТИВНЫ</span>
+  </div>
+
+  <div class="event-name">ДРОП - ЭНДА и НЕЗЕРСКАЯ СТАНЦИЯ</div>
+
+  <div class="event-desc">
+    ДРОП - ЭНДА и НЕЗЕРСКАЯ СТАНЦИЯ
+  </div>
+
+  <div class="event-footer">
+    <span>ИВЕНТЫ СЕЙЧАС АКТИВНЫ</span>
+  </div>
+</div>
 
   <div class="button-container">
     <div class="minecraft-btn" id="addBtn">
@@ -551,7 +638,6 @@ body {
         <li>Специальная ежедневная награда - /reward</li>
         <li>Анти - спам сообщениями не действует на вас</li>
         <li>Возможность видеть игроков в ванише</li>
-        <li>Возможность сразу получать плавленую руду при добыче</li>
         <li>Возможность прямо отправлять сообщения в глобальный чат</li>
       </ul>
     </div>
