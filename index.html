@@ -376,8 +376,9 @@ body {
 }
 
 .event-status {
-  color: #058d11;
-  text-shadow: 0 0 8px rgba(15, 112, 6, 0.6);
+  background: linear-gradient(135deg, #19ac05, #319609);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-shadow: 0 10px 28px rgba(0,0,0,0.8);
 }
 
@@ -416,7 +417,7 @@ body {
 <div class="event-box">
   <div class="event-header">
     <span class="event-title">⚔️ ИВЕНТЫ СЕРВЕРОВ</span>
-    <span class="event-status">ОФФЛАЙН</span>
+    <span class="event-status">● ОФФЛАЙН</span>
   </div>
 
   <div class="event-name">ДРОП - ЭНДА и НЕЗЕРСКАЯ СТАНЦИЯ</div>
@@ -717,11 +718,11 @@ async function checkServer() {
   online = data.players?.online || 0;
   statusEl.innerHTML = `<span class="online-text">● онлайн - ${online} / ${maxPlayers}</span>`;
 
-  eventStatusEl.textContent = "АКТИВНЫ";
+  eventStatusEl.textContent = "● АКТИВНЫ";
 } else {
   statusEl.innerHTML = `<span class="offline-text">● оффлайн</span>`;
 
-  eventStatusEl.textContent = "ОФФЛАЙН";
+  eventStatusEl.textContent = "● ОФФЛАЙН";
 }
 
     const percent = Math.min(Math.max((online / maxPlayers) * 100, 2), 100);
