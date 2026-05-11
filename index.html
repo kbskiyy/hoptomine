@@ -29,7 +29,7 @@ body {
   background-attachment: fixed;
 }
 
-.server-status { font-weight: 900; font-size: 13px; margin: 0 0 0 25px; letter-spacing: 0.3px; text-shadow: 0 0 8px rgba(204,50,0,0.7); }
+.server-status { font-weight: 100%; font-size: 13px; margin: 0 0 0 25px; letter-spacing: 0.3px; text-shadow: 0 0 8px rgba(204,50,0,0.7); }
 .online-text, .offline-text, .checking-text { background: linear-gradient(135deg, #cc0028, #ff6500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; text-shadow: 0 0 8px rgba(204,50,0,0.7); display:inline-block; }
 .checking-text::after { content: ''; display:inline-block; width:1ch; animation: dots 1.5s steps(5,end) infinite; }
 @keyframes dots { 0%,30%{content:'';} 60%{content:'.';} 90%{content:'..';} 99%{content:'...';} 100%{content:'';} }
@@ -657,7 +657,7 @@ async function checkServer() {
 
   eventStatusEl.textContent = "● АКТИВНЫ";
 } else {
-  statusEl.innerHTML = `<span class="offline-text">● оффлайн</span>`;
+  statusEl.innerHTML = `<span class="offline-text">● оффлайн - публикация - 20 / 06 / 2026</span>`;
 
   eventStatusEl.textContent = "● ОФФЛАЙН";
 }
@@ -666,7 +666,7 @@ async function checkServer() {
     progressEl.style.width = percent + "%";
 
   } catch {
-    statusEl.innerHTML = `<span class="offline-text">● оффлайн</span>`;
+    statusEl.innerHTML = `<span class="offline-text">● оффлайн - публикация - 20 / 06 / 2026</span>`;
     progressEl.style.width = "0%";
   }
 }
