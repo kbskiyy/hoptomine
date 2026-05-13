@@ -643,7 +643,6 @@ function showCopyFeedback() {
 async function checkServer() {
   const statusEl = document.getElementById("serverStatus");
   const progressEl = document.getElementById("serverProgress");
-  const eventStatusEl = document.querySelector(".event-status");
   const ip = "mc.hoptomine.xyz";
   const port = 19125;
   const maxPlayers = 19999;
@@ -661,12 +660,8 @@ async function checkServer() {
     if (data && data.online) {
   online = data.players?.online || 0;
   statusEl.innerHTML = `<span class="online-text">● онлайн - ${online} / ${maxPlayers}</span>`;
-
-  eventStatusEl.textContent = "● АКТИВНЫ";
 } else {
   statusEl.innerHTML = `<span class="offline-text">● оффлайн</span>`;
-
-  eventStatusEl.textContent = "● ОФФЛАЙН";
 }
 
     const percent = Math.min(Math.max((online / maxPlayers) * 100, 2), 100);
