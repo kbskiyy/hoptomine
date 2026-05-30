@@ -589,7 +589,7 @@ function toggleInfo(id) {
 }
 
 document.getElementById("addBtn").addEventListener("click", () => {
-  window.location.href = "minecraft:///?addExternalServer=ＨＯＰＴＯＭＩＮＥ|mc.hoptomine.xyz:19125";
+  window.location.href = "minecraft:///?addExternalServer=ＨＯＰＴＯＭＩＮＥ|mc.hoptomine.xyz:19133";
 });
 
 const copyBtn = document.getElementById('copyBtn');
@@ -600,7 +600,7 @@ const ANIMATION_DURATION = 3000;
 copyBtn.addEventListener('click', function(event) {
   event.preventDefault();
   event.stopPropagation();
-  const text = 'mc.hoptomine.xyz:19125';
+  const text = 'mc.hoptomine.xyz:19133';
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(() => {
       showCopyFeedback();
@@ -644,7 +644,7 @@ async function checkServer() {
   const statusEl = document.getElementById("serverStatus");
   const progressEl = document.getElementById("serverProgress");
   const ip = "mc.hoptomine.xyz";
-  const port = 19125;
+  const port = 19133;
   const maxPlayers = 19999;
 
   statusEl.innerHTML = '<span class="checking-text">● проверка</span>';
