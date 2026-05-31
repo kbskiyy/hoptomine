@@ -661,14 +661,14 @@ async function checkServer() {
   online = data.players?.online || 0;
   statusEl.innerHTML = `<span class="online-text">● онлайн - ${online} / ${maxPlayers}</span>`;
 } else {
-  statusEl.innerHTML = `<span class="offline-text">● оффлайн</span>`;
+  statusEl.innerHTML = `<span class="offline-text">● соединение...</span>`;
 }
 
     const percent = Math.min(Math.max((online / maxPlayers) * 100, 2), 100);
     progressEl.style.width = percent + "%";
 
   } catch {
-    statusEl.innerHTML = `<span class="offline-text">● оффлайн</span>`;
+    statusEl.innerHTML = `<span class="offline-text">● соединение...</span>`;
     progressEl.style.width = "0%";
   }
 }
