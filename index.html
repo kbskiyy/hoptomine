@@ -337,9 +337,60 @@ body {
   height: 40px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.233), transparent);
 }
+
+#page-loader {
+    position: fixed;
+    inset: 0;
+    background: #a12009f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999999;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+#page-loader.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-text {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 900;
+    animation: loaderPulse 2s ease-in-out infinite;
+}
+
+@keyframes loaderPulse {
+    0% {
+        transform: scale(1);
+        opacity: .7;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: .7;
+    }
+}
 </style>
 </head>
 <body>
+
+<div id="page-loader">
+    <div class="loader-content">
+        <div class="loader-text">
+            ЗАГРУЗКА СТРАНИЦЫ<span id="dots"></span>
+        </div>
+    </div>
+</div>
 
   <div class="header-bg"></div>
 
@@ -702,6 +753,27 @@ banner.addEventListener('contextmenu', function(e) {
 banner.addEventListener('dragstart', function(e) {
     e.preventDefault();
 });
+
+const dots = document.getElementById('dots');
+const loader = document.getElementById('page-loader');
+
+let dotsCount = 0;
+
+const dotsAnimation = setInterval(() => {
+    dotsCount++;
+
+    dots.textContent = '.'.repeat(dotsCount);
+
+    if (dotsCount >= 3) {
+        clearInterval(dotsAnimation);
+
+        loader.classList.add('hide');
+
+        setTimeout(() => {
+            loader.remove();
+        }, 800);
+    }
+}, 600);
 </script>
 
 </body>
