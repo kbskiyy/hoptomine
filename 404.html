@@ -219,6 +219,20 @@ cookieAcceptBtn.addEventListener('click', () => {
   localStorage.setItem('cookieAccepted', 'true');
   cookieNotice.classList.remove('show');
 });
+
+document.querySelector('.top-banner img').addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+const banner = document.querySelector('.top-banner img');
+
+banner.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+banner.addEventListener('dragstart', function(e) {
+    e.preventDefault();
+});
 </script>
 
 </body>
