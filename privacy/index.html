@@ -377,6 +377,20 @@ document.addEventListener('click', (e) => {
     sideMenu.classList.remove('open');
   }
 });
+
+document.querySelector('.top-banner img').addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+const banner = document.querySelector('.top-banner img');
+
+banner.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+banner.addEventListener('dragstart', function(e) {
+    e.preventDefault();
+});
 </script>
 
 </body>
