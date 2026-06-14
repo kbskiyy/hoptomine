@@ -389,10 +389,104 @@ body {
         opacity: .7;
     }
 }
+
+.buy-btn {
+    margin-left: -20px;
+    margin-top: -7px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 1px 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    border-radius: 15px;
+    border: none;
+    background: linear-gradient(135deg, #ffffff11, #ffffff0c);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3),
+                0 8px 24px rgba(0,0,0,0.25);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+    z-index: 33;
+}
+
+.buy-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.35),
+                0 12px 28px rgba(0,0,0,0.3);
+}
+
+.buy-btn img {
+    margin-top: 3px;
+    margin-left: -2px;
+    width: 30px;
+    height: 30px;
+}
+
+.notify {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100px);
+    transition: all 0.35s ease;
+    z-index: 9999;
+}
+
+.notify.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.notify-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 280px;
+    padding: 16px 20px;
+    border-radius: 20px;
+    background: rgb(34, 102, 8);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgb(12, 61, 11);
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(255, 80, 80, 0.15);
+}
+
+.notify-content img {
+    width: 42px;
+    height: 42px;
+}
+
+.notify-content h3 {
+    margin: 0;
+    color: #e72806;
+    font-size: 16px;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.notify-content p {
+    margin: 4px 0 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+}
 </style>
 </head>
 <body>
-
+<div id="notify" class="notify">
+    <div class="notify-content">
+        <img src="img/error.png" alt="Ошибка">
+        <div>
+            <h3>Магазин недоступен</h3>
+            <p>Система покупки донатов временно недоступна...</p>
+        </div>
+    </div>
+</div>
 <div id="page-loader">
     <div class="loader-content">
         <div class="loader-text">
@@ -454,6 +548,10 @@ body {
     <span class="donate-rank">FLY -</span> информация
     <div class="info-btn-container">
       <button class="info-btn fly-btn" onclick="toggleInfo('fly')">ИНФОРМАЦИЯ</button>
+      </button>
+    <button class="buy-btn" onclick="showNotify()">
+    <img src="img/buy.png" alt="Купить">
+    </button>
     </div>
     <div class="donate-info" id="fly">
       <h3>ДОНАТ - <span class="donate-rank">FLY</span></h3>
@@ -472,6 +570,9 @@ body {
     <span class="donate-rank">GARNET -</span> информация
     <div class="info-btn-container">
       <button class="info-btn garnet-btn" onclick="toggleInfo('garnet')">ИНФОРМАЦИЯ</button>
+      <button class="buy-btn" onclick="showNotify()">
+    <img src="img/buy.png" alt="Купить">
+    </button>
     </div>
     <div class="donate-info" id="garnet">
       <h3>ДОНАТ - <span class="donate-rank">GARNET</span></h3>
@@ -492,6 +593,9 @@ body {
     <span class="donate-rank">BETA -</span> информация
     <div class="info-btn-container">
       <button class="info-btn beta-btn" onclick="toggleInfo('beta')">ИНФОРМАЦИЯ</button>
+      <button class="buy-btn" onclick="showNotify()">
+    <img src="img/buy.png" alt="Купить">
+    </button>
     </div>
     <div class="donate-info" id="beta">
       <h3>ДОНАТ - <span class="donate-rank">BETA</span></h3>
@@ -516,6 +620,9 @@ body {
     <span class="donate-rank">ALPHA -</span> информация
     <div class="info-btn-container">
       <button class="info-btn alpha-btn" onclick="toggleInfo('alpha')">ИНФОРМАЦИЯ</button>
+      <button class="buy-btn" onclick="showNotify()">
+    <img src="img/buy.png" alt="Купить">
+    </button>
     </div>
     <div class="donate-info" id="alpha">
       <h3>ДОНАТ - <span class="donate-rank">ALPHA</span></h3>
@@ -542,6 +649,9 @@ body {
     <span class="donate-rank">ULTRA -</span> информация
     <div class="info-btn-container">
       <button class="info-btn ultra-btn" onclick="toggleInfo('ultra')">ИНФОРМАЦИЯ</button>
+      <button class="buy-btn" onclick="showNotify()">
+    <img src="img/buy.png" alt="Купить">
+    </button>
     </div>
     <div class="donate-info" id="ultra">
       <h3>ДОНАТ - <span class="donate-rank">ULTRA</span></h3>
@@ -573,6 +683,9 @@ body {
     <span class="donate-rank">APOCALYPSE -</span> информация
     <div class="info-btn-container">
       <button class="info-btn apocalypse-btn" onclick="toggleInfo('apocalypse')">ИНФОРМАЦИЯ</button>
+      <button class="buy-btn" onclick="showNotify()">
+    <img src="img/buy.png" alt="Купить">
+    </button>
     </div>
     <div class="donate-info" id="apocalypse">
       <h3>ДОНАТ - <span class="donate-rank">APOCALYPSE</span></h3>
@@ -748,6 +861,17 @@ const dotsAnimation = setInterval(() => {
         }, 800);
     }
 }, 600);
+
+function showNotify() {
+    const notify = document.getElementById('notify');
+
+    notify.classList.add('show');
+
+    clearTimeout(notify.timer);
+    notify.timer = setTimeout(() => {
+        notify.classList.remove('show');
+    }, 3000);
+}
 </script>
 
 </body>
