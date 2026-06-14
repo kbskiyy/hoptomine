@@ -86,6 +86,12 @@ body {
   -webkit-background-clip: text;
 }
 
+.info-btn-container { 
+  margin-top: 8px; 
+  display: flex; 
+  justify-content: flex-start; 
+}
+
 .info-btn { 
   display: inline-block; 
   padding: 8px 18px; 
@@ -111,7 +117,7 @@ body {
 }
 
 .rules-info {
-  display: block;
+  display: none;
   margin-top: 8px;
   padding: 10px;
   background: rgba(0,0,0,0.4);
@@ -429,6 +435,9 @@ body {
 <ul class="rules-list">
   <li class="rules-item rules-main">
     <span class="rules-head">ОСНОВНЫЕ ПРАВИЛА</span>
+    <div class="info-btn-container">
+      <button class="info-btn rules-main-btn" onclick="toggleInfo('rules-main')">ПРАВИЛА</button>
+    </div>
     <div class="rules-info" id="rules-main">
       <h3>ОСНОВНЫЕ ПРАВИЛА</h3>
       <p>➥ Обновлено 19 / 03 / 2026 г…<br>
@@ -491,6 +500,9 @@ body {
 
   <li class="rules-item rules-admin">
     <span class="rules-head">ПРАВИЛА ДЛЯ АДМИНИСТРАЦИИ</span>
+    <div class="info-btn-container">
+      <button class="info-btn rules-admin-btn" onclick="toggleInfo('rules-admin')">ПРАВИЛА ДЛЯ АДМИНИСТРАЦИИ</button>
+    </div>
     <div class="rules-info" id="rules-admin">
       <h3>ПРАВИЛА ДЛЯ АДМИНИСТРАЦИИ</h3>
       <p>➥ Обновлено 04 / 04 / 2026 г…<br>
@@ -551,6 +563,9 @@ body {
 
   <li class="rules-item rules-chat">
     <span class="rules-head">ПРАВИЛА ГРУППЫ БЕСЕДЫ HOPTOMINE В TELEGRAM</span>
+    <div class="info-btn-container">
+      <button class="info-btn rules-chat-btn" onclick="toggleInfo('rules-chat')">ПРАВИЛА ГРУППЫ БЕСЕДЫ HOPTOMINE В TELEGRAM</button>
+    </div>
     <div class="rules-info" id="rules-chat">
       <h3>ПРАВИЛА ГРУППЫ БЕСЕДЫ HOPTOMINE В TELEGRAM</h3>
       <p>➥ Обновлено 19 / 03 / 2026 г…<br>
@@ -593,6 +608,9 @@ body {
 
 <li class="rules-item rules-admintg">
     <span class="rules-head">ПРАВИЛА ГРУППЫ АДМИНИСТРАЦИИ HOPTOMINE В TELEGRAM</span>
+    <div class="info-btn-container">
+      <button class="info-btn rules-admintg-btn" onclick="toggleInfo('rules-admintg')">ПРАВИЛА ГРУППЫ АДМИНИСТРАЦИИ HOPTOMINE В TELEGRAM</button>
+    </div>
     <div class="rules-info" id="rules-admintg">
       <h3>ПРАВИЛА ГРУППЫ АДМИНИСТРАЦИИ HOPTOMINE В TELEGRAM</h3>
       <p>➥ Обновлено 19 / 03 / 2026 г…<br>
@@ -661,6 +679,11 @@ cookieAcceptBtn.addEventListener('click', () => {
   localStorage.setItem('cookieAccepted', 'true');
   cookieNotice.classList.remove('show');
 });
+
+function toggleInfo(id) {
+  var el = document.getElementById(id);
+  el.style.display = el.style.display === "block" ? "none" : "block";
+}
 
 const menuBtn = document.getElementById('menuBtn');
 const sideMenu = document.getElementById('sideMenu');
