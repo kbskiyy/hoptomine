@@ -473,6 +473,100 @@ body {
     font-size: 13px;
     font-family: 'Montserrat', sans-serif;
 }
+
+.ultradram-item {
+    width: 90%;
+    margin: 10px 20px;
+    padding: 20px 16px;
+    border-radius: 39px;
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 3px solid #ffffff;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.3),
+        0 0 20px rgba(255,80,0,0.15);
+}
+
+.ultradram-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+.ultradram-name {
+    font-size: 24px;
+    font-weight: 900;
+    margin-left: 10px;
+    color: #eb6314;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+
+}
+
+.ultradram-value {
+    font-size: 17px;
+    margin-top: 20px;
+    font-weight: 900;
+    color: white;
+    margin-right: 10px;
+
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.ultradram-slider {
+    width: 95%;
+
+    height: 12px;
+    appearance: none;
+    border: 3px solid #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    background: linear-gradient(
+        90deg,
+        #d6330a,
+        #cc3102,
+        #dfba18
+    );
+
+    margin-bottom: 15px;
+}
+
+.ultradram-slider::-webkit-slider-thumb {
+    appearance: none;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.336);
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.ultradram-btn {
+    background: linear-gradient(
+        135deg,
+        #ffd700,
+        #ff9800,
+        #ff4500
+    );
+
+    border: 3px solid #ffffff;
+}
+
+.ultradram-description {
+    margin: 12px 25px 15px 25px;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.5;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
 </style>
 </head>
 <body>
@@ -721,6 +815,42 @@ body {
   </li>
 </ul>
 
+<div style="height: 20px;"></div>
+
+<h1 class="donates-title">
+    ДОНАТЫ - HM <span class="ultradram-title">• U-DRAM</span>
+</h1>
+<div class="donates-underline"></div>
+
+<div class="ultradram-description">
+    ULTRADRAM - специальная донатная валюта сервера...
+</div>
+
+<div class="ultradram-item">
+    <div class="ultradram-top">
+        <span class="ultradram-name">ULTRADRAM</span>
+        <span class="ultradram-value" id="ultradramValue">ULTRADRAM-1500</span>
+    </div>
+
+    <input type="range"
+           id="ultradramSlider"
+           class="ultradram-slider"
+           min="1000"
+           max="5000"
+           step="1"
+           value="1500">
+
+    <div class="info-btn-container">
+        <button class="info-btn ultradram-btn">
+            КОЛИЧЕСТВО » U-DRAM-<span id="ultradramAmount">1500</span>
+        </button>
+
+        <button class="buy-btn" onclick="showNotify()">
+            <img src="img/buy.png" alt="Купить">
+        </button>
+    </div>
+</div>
+
 <footer class="site-footer">
   <p>
     © 2026 <span class="hopto-gradient">HOPTO</span>MINE<br>
@@ -870,6 +1000,15 @@ function showNotify() {
         notify.classList.remove('show');
     }, 3000);
 }
+
+const ultradramSlider = document.getElementById('ultradramSlider');
+const ultradramValue = document.getElementById('ultradramValue');
+const ultradramAmount = document.getElementById('ultradramAmount');
+
+ultradramSlider.addEventListener('input', () => {
+    ultradramValue.textContent = "ULTRADRAM-" + ultradramSlider.value;
+    ultradramAmount.textContent = ultradramSlider.value;
+});
 </script>
 
 </body>
