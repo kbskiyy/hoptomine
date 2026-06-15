@@ -503,16 +503,24 @@ body {
     margin-left: 10px;
     color: #ffffff;
     text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-
-}
-
-.ultradram-value {
-    font-size: 15px;
-    margin-top: 20px;
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
     font-weight: 900;
     color: white;
-
     text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.ultradram-icon {
+    position: absolute;
+    top: -8px;
+    left: 115%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.7));
 }
 
 .ultradram-slider {
@@ -828,8 +836,10 @@ body {
 
 <div class="ultradram-item">
     <div class="ultradram-top">
-        <span class="ultradram-name">ULTRADRAM</span>
-        <span class="ultradram-value" id="ultradramValue">U-DRAM-1500</span>
+        <span class="ultradram-name">
+  <img src="img/money.png" alt="money" class="ultradram-icon">
+  ULTRADRAM
+</span>
     </div>
 
     <input type="range"
@@ -1006,7 +1016,6 @@ const ultradramValue = document.getElementById('ultradramValue');
 const ultradramAmount = document.getElementById('ultradramAmount');
 
 ultradramSlider.addEventListener('input', () => {
-    ultradramValue.textContent = "U-DRAM-" + ultradramSlider.value;
     ultradramAmount.textContent = ultradramSlider.value;
 });
 </script>
