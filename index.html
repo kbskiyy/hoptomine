@@ -830,7 +830,7 @@ body {
 <div class="ultradram-item">
     <div class="ultradram-top">
         <span class="ultradram-name">ULTRADRAM</span>
-        <span class="ultradram-value" id="ultradramValue">ULTRADRAM-1500</span>
+        <span class="ultradram-value" id="ultradramValue">U-DRAM-1500</span>
     </div>
 
     <input type="range"
@@ -1007,7 +1007,7 @@ const ultradramValue = document.getElementById('ultradramValue');
 const ultradramAmount = document.getElementById('ultradramAmount');
 
 ultradramSlider.addEventListener('input', () => {
-    ultradramValue.textContent = "ULTRADRAM-" + ultradramSlider.value;
+    ultradramValue.textContent = "U-DRAM-" + ultradramSlider.value;
     ultradramAmount.textContent = ultradramSlider.value;
 });
 </script>
