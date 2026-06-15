@@ -575,6 +575,20 @@ body {
     line-height: 1.5;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
+
+@media (min-width: 1000px) {
+    .donates-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px;
+        align-items: start;
+    }
+
+    .donate-item {
+        margin: 10px 0;
+        align-self: start;
+    }
+}
 </style>
 </head>
 <body>
