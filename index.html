@@ -577,16 +577,21 @@ body {
 }
 
 @media (min-width: 1000px) {
-    .donates-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 20px;
-        align-items: start;
+
+    .donates-columns {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .donates-columns .donates-list {
+        width: 50%;
+        padding: 0;
+        margin: 0;
     }
 
     .donate-item {
         margin: 10px 0;
-        align-self: start;
     }
 }
 </style>
@@ -657,12 +662,12 @@ body {
 <h1 class="donates-title">ДОНАТЫ - HM</h1>
 <div class="donates-underline"></div>
 
-<ul class="donates-list expanded">
+<div class="donates-columns">
+    <ul class="donates-list">
   <li class="donate-item fly">
     <span class="donate-rank">FLY -</span> информация
     <div class="info-btn-container">
       <button class="info-btn fly-btn" onclick="toggleInfo('fly')">ИНФОРМАЦИЯ</button>
-      </button>
     <button class="buy-btn" onclick="showNotify()">
     <img src="img/buy.png" alt="Купить">
     </button>
@@ -730,6 +735,8 @@ body {
       </ul>
     </div>
   </li>
+</ul>
+ <ul class="donates-list">
   <li class="donate-item alpha">
     <span class="donate-rank">ALPHA -</span> информация
     <div class="info-btn-container">
@@ -836,6 +843,7 @@ body {
     </div>
   </li>
 </ul>
+</div>
 
 <div style="height: 20px;"></div>
 
