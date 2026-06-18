@@ -116,13 +116,6 @@ body {
   border: 3px solid transparent;
 }
 
-.fly { border-color: #006680; }
-.garnet { border-color: #004d40; }
-.beta { border-color: #b34700; }
-.alpha { border-color: #7f2200; }
-.ultra { border-color: #7a0e0e; }
-.apocalypse { border-color: #2c0a3a; }
-
 .fly .donate-rank { color: #00cfff; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
 .garnet .donate-rank { color: #008080; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
 .beta .donate-rank { color: #ff9800; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
@@ -480,9 +473,6 @@ body {
     padding: 20px 16px;
     border-radius: 39px;
     background: rgba(255, 255, 255, 0.08);
-
-    border: 3px solid #ffffff;
-
     box-shadow:
         0 4px 12px rgba(0,0,0,0.3),
         0 0 20px rgba(255,80,0,0.15);
@@ -500,7 +490,7 @@ body {
     font-size: 24px;
     font-weight: 900;
     margin-top: -5px;
-    margin-left: 10px;
+    margin-left: 20px;
     color: #ffffff;
     text-shadow: 0 2px 4px rgba(0,0,0,0.6);
     position: relative;
@@ -594,9 +584,51 @@ body {
         margin: 10px 0;
     }
 }
+
+.pc-notification {
+    display: none;
+}
+
+@media screen and (min-width: 1025px) {
+    .pc-notification {
+        display: block;
+        position: fixed;
+        bottom: 60%;
+        right: 70px;
+        z-index: 9999;
+        width: 400px;
+        padding: 16px 30px;
+        background: linear-gradient(45deg, #f0420d, #f0950d);
+        border: 3px solid rgb(255, 255, 255);
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        backdrop-filter: blur(10px);
+        border-radius: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        color: #ffffff;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .pc-notification h3 {
+        margin: 0 0 6px 0;
+        font-size: 16px;
+        color: #f0d90d;
+    }
+
+    .pc-notification p {
+        margin: 0;
+        font-size: 13px;
+        color: #c9d1f5;
+        line-height: 1.4;
+    }
+}
 </style>
 </head>
 <body>
+<div class="pc-notification">
+    <h3>Внимание!</h3>
+    <p>Для вашего устройства автоматически применена улучшенная графическая версия интерфейса...</p>
+</div>
+
 <div id="notify" class="notify">
     <div class="notify-content">
         <img src="img/error.png" alt="Ошибка">
