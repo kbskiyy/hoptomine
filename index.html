@@ -1142,6 +1142,20 @@ const ultradramAmount = document.getElementById('ultradramAmount');
 ultradramSlider.addEventListener('input', () => {
     ultradramAmount.textContent = ultradramSlider.value;
 });
+
+function showWipeNotify() {
+    const wipeEl = document.getElementById('wipeNotify');
+    wipeEl.classList.add('show');
+}
+
+function closeWipeNotify() {
+    const wipeEl = document.getElementById('wipeNotify');
+    wipeEl.classList.remove('show');
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(showWipeNotify, 1500);
+});
 </script>
 
 </body>
