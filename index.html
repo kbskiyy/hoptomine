@@ -591,6 +591,51 @@ body {
         margin: 10px 0;
     }
 }
+
+.wipe-notify-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 280px;
+    max-width: 320px;
+    padding: 16px 20px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #b71c1c, #e65100);
+    backdrop-filter: blur(15px);
+    border: 2px solid #ff3300;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35), 0 0 20px rgba(255, 80, 80, 0.15);
+}
+
+.wipe-notify-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wipe-notify-top img {
+    width: 42px;
+    height: 42px;
+    filter: hue-rotate(140deg);
+}
+
+.wipe-close-btn {
+    padding: 6px;
+    font-weight: 900;
+    font-size: 11px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    background: rgba(0,0,0,0.4);
+    border: 2px solid white;
+    border-radius: 12px;
+    cursor: pointer;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    transition: transform 0.2s;
+}
+
+.wipe-close-btn:hover {
+    transform: scale(1.03);
+}
 </style>
 </head>
 <body>
