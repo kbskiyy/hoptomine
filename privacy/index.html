@@ -1,1 +1,711 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>HOPTOMINE - ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</title>
+<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#121212">
+<meta name="color-scheme" content="dark">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+<style>
+body {
+  margin-top: 80px;
+  padding: 8px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  background: transparent;
+  background-color: #121212;
+  color: white;
+  background:
+  linear-gradient(rgba(0, 0, 0, 0.295), rgba(0, 0, 0, 0.158)),
+  linear-gradient(135deg, #9e0000, #ff5e00, #ff4800);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
+.policy-title {
+    font-weight: 900;
+    font-size: 36px;
+    margin: 40px 20px 20px 20px;
+    text-shadow: 4px 4px 12px rgba(0,0,0,0.7), 2px 2px 8px rgba(0,0,0,0.5);
+}
+.policy-underline {
+    width: calc(100% - 40px);
+    height: 4px;
+    margin: 0 20px 30px 20px;
+    background: white;
+    border-radius: 2px;
+}
+.policy-block {
+    margin: 20px;
+    padding: 20px;
+    border-left: 6px solid #ff1c1c;
+    border-radius: 17px;
+    background: linear-gradient(
+  90deg,
+  rgba(0, 0, 0, 0.342) 100%
+);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.policy-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.7);
+}
+.policy-text {
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 1.6;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+.policy-text span {
+    font-weight: 900;
+    color: #ff1c1c;
+    -webkit-text-fill-color: initial;
+}
+
+.site-footer {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 10px;
+  color: white;
+  text-align: center;
+  padding: 28px 0 24px 0;
+  background: rgba(0,0,0,.28);
+  backdrop-filter: blur(6px);
+  border-top: 2px solid rgba(255,255,255,.22);
+  text-shadow: 0 3px 6px rgba(0,0,0,0.6), 0 0 2px rgba(0,0,0,0.05);
+  letter-spacing: 0.4px;
+  line-height: 1.2em;
+  margin: 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,.4);
+}
+
+.site-footer p {
+  margin: 0;
+  padding: 0;
+}
+
+.hopto-gradient {
+  background: linear-gradient(135deg, #32860d, #5bc01b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+.site-footer a.hopto-gradient {
+  text-decoration: none;
+}
+
+.cookie-notice {
+  position: fixed;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.35);
+  top: 400px;
+  bottom: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 350px;
+  width: 80%;
+  padding: 16px 20px;
+  background: rgba(17, 90, 7, 0.95);
+  border: 2px solid white;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+  color: white;
+  font-weight: 900;
+  font-size: 13px;
+  text-align: center;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translate(-50%, 50px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+.cookie-notice.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+.cookie-notice button {
+  align-self: center;
+  padding: 8px 22px;
+  font-weight: 900;
+  font-size: 12px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg,#ff6f00,#ff0000);
+  border: 2px solid white;
+  border-radius: 15px;
+  cursor: pointer;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  transition: transform 0.25s ease;
+}
+.cookie-notice button:hover {
+  transform: scale(1.05);
+}
+
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+
+  width: 30px;
+  height: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  cursor: pointer;
+  z-index: 100000;
+
+  margin: 0;
+
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.menu-btn span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+.menu-btn:hover {
+  transform: scale(1.05);
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 220px;
+  height: 100%;
+  background: linear-gradient(135deg,#32860d,#1a3e0d);
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: left 0.3s ease;
+  z-index: 10000;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.6);
+}
+
+.side-menu a {
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.08);
+  text-align: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.side-menu a:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.18);
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.top-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 60px;
+  align-items: center;
+}
+
+.top-banner img {
+  width: 50%;
+  max-width: 300px;
+  height: auto;
+  filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.15));
+}
+
+.header-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.219), rgba(0, 0, 0, 0.178)),
+    linear-gradient(135deg, #a10000, #ff5100);
+
+  z-index: 8000;
+  pointer-events: none;
+}
+
+.header-bg::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.233), transparent);
+}
+
+@media (max-width: 600px) {
+  .top-banner img {
+    width: 70%;
+    max-width: 370px;
+    height: auto;
+    margin-top: -5px;
+  }
+
+  .header-bg {
+    height: 63px;
+  }
+}
+
+#page-loader {
+    position: fixed;
+    inset: 0;
+    background: #a12009f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999999;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+#page-loader.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-text {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 900;
+    animation: loaderPulse 2s ease-in-out infinite;
+}
+
+@keyframes loaderPulse {
+    0% {
+        transform: scale(1);
+        opacity: .7;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: .7;
+    }
+}
+
+.notify {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100px);
+    transition: all 0.35s ease;
+    z-index: 9999;
+}
+
+.notify.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.notify-content {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 320px;
+    max-width: 320px;
+    padding: 16px 20px;
+    border-radius: 25px;
+    background: rgb(34, 102, 8);
+    backdrop-filter: blur(15px);
+    border: 3px solid rgb(255, 255, 255);
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.35),
+        0 0 20px rgba(255, 80, 80, 0.15);
+}
+
+@media (max-width: 600px) {
+  .notify-content {
+    width: calc(100% - 40px);
+    max-width: 320px;
+    box-sizing: border-box;
+  }
+}
+
+.notify-content img {
+    width: 42px;
+    height: 42px;
+    margin-right: 10px;
+}
+
+.notify-content h3 {
+    margin: 0;
+    color: #e72806;
+    font-size: 16px;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+.notify-content p {
+    margin: 4px 0 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+.permanent-notice {
+  position: fixed;
+  margin-bottom: 30px;
+  bottom: 20px;
+  right: 20px;
+  max-width: 380px;
+  width: calc(100% - 40px);
+  padding: 20px;
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 3px solid #ff4800;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 72, 0, 0.2);
+  color: white;
+  z-index: 999999;
+  animation: noticePulse 1s infinite alternate ease-in-out;
+  box-sizing: border-box;
+}
+
+@keyframes noticePulse {
+  0% {
+    border-color: #ff0000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 72, 0, 0.25);
+  }
+  100% {
+    border-color: #ffaa00;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 170, 0, 0.45);
+  }
+}
+
+.permanent-notice-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.permanent-notice-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 900;
+  color: #ff5e00;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.permanent-notice-text {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #e0e0e0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 600px) {
+  .permanent-notice {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    width: calc(100% - 20px);
+    max-width: none;
+    transform: none;
+    padding: 16px;
+  }
+}
+
+.permanent-notice-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+</style>
+</head>
+<body>
+
+<div class="permanent-notice">
+  <div class="permanent-notice-content">
+    <h3 class="permanent-notice-title">
+      <img src="img/error.png" alt="Внимание" class="permanent-notice-icon">
+      Внимание!
+    </h3>
+    <p class="permanent-notice-text">
+      Проект HOPTOMINE приостанавливает свою работу на неопределённый срок...<br>Мы искренне благодарим каждого из вас за преданность, поддержку и ту неповторимую уютную атмосферу, которую мы создавали вместе...<br>Благодарим, что были с нами!
+    </p>
+  </div>
+</div>
+
+<div id="notify" class="notify">
+    <div class="notify-content">
+        <img src="../img/error.png" alt="Ошибка">
+        <div>
+            <h3>Ошибка...</h3>
+            <p>Проект остановлен...</p>
+        </div>
+    </div>
+</div>
+
+<div id="page-loader">
+    <div class="loader-content">
+        <div class="loader-text">
+            ЗАГРУЗКА СТРАНИЦЫ<span id="dots"></span>
+        </div>
+    </div>
+</div>
+
+<div class="header-bg"></div>
+
+<div class="top-banner">
+  <img src="../img/banner.png" alt="banner">
+</div>
+  
+<div class="cookie-notice" id="cookieNotice">
+  Наш сайт использует файлы cookies для корректной работы и безопасности... Продолжая использование сайта, вы соглашаетесь с их использованием...
+  <button id="cookieAcceptBtn">ПОНЯТНО</button>
+</div>
+
+<div class="button-container">
+  <div class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="side-menu" id="sideMenu">
+    <a href="/">ГЛАВНАЯ</a>
+    <a href="#" onclick="event.preventDefault(); showNotify();">ПРАВИЛА</a>
+    <a href="#" onclick="event.preventDefault(); showNotify();">НОВОСТИ</a>
+  </div>
+
+<h1 class="policy-title">ПОЛИТИКА КОНФИДЕН-<br>ЦИАЛЬНОСТИ - HOPTOMINE</h1>
+<div class="policy-underline"></div>
+
+<div class="policy-block">
+<p class="policy-text">
+➥ Обновлено 16 / 07 / 2026 г…<br>
+19:00 <span class="word-strict">по</span> Ереванскому времени…<br><br>
+
+Данный сайт использует сервис Cloudflare для защиты от сетевых атак, фильтрации вредоносного трафика и ускорения загрузки страниц...<br><br>
+
+В процессе работы Cloudflare может автоматически обрабатывать техническую информацию, включая IP-адрес пользователя, а также устанавливать необходимые cookies для обеспечения безопасности соединения и корректной работы сайта...<br><br>
+
+Используемые cookies являются техническими и применяются исключительно для защиты сайта, предотвращения злоупотреблений и обеспечения стабильной работы сервиса...<br><br>
+
+Для корректной работы сайта используется localStorage для запоминания нажатия кнопки « ПОНЯТНО » на уведомлении о cookies, данные не передаются третьим лицам и применяются только для функциональности сайта...<br><br>
+
+Также сайт может использовать технические ресурсы и инфраструктуру сервисов Google, включая fonts.googleapis.com, который применяется для загрузки шрифтов...<br><br>
+
+В отдельных случаях для технической статистики производительности и безопасности может использоваться сервис cloudflareinsights.com ( static.cloudflareinsights.com ),  являющийся частью инфраструктуры Cloudflare...<br><br>
+
+Администрация сайта HOPTOMINE не собирает, не хранит и не обрабатывает персональные данные пользователей напрямую...<br><br>
+
+Администрация сайта HOPTOMINE не передает персональные данные пользователей третьим лицам...
+При этом техническая информация ( например IP-адрес и данные браузера ) может автоматически 
+обрабатываться сервисами инфраструктуры сайта, такими как Cloudflare и Google, 
+которые используются для защиты, доставки контента и корректной работы сайта...<br><br>
+
+Дополнительную информацию о способах обработки данных сервисом Cloudflare можно найти на официальном сайте Cloudflare...<br><br>
+
+Контакты...<br>
+➥ По вопросам, связанным с обработкой данных и работой сайта, вы можете обратиться:
+contact@hoptomine.xyz
+</p>
+</div>
+
+<footer class="site-footer">
+  <p>
+    © 2026 <span class="hopto-gradient">HOPTO</span>MINE<br>
+    Все права защищены.<br><br>
+    - <span class="hopto-gradient">HOPTO</span>MINE не связан с Mojang Studios или Microsoft.<br>
+    <a class="hopto-gradient" href="/privacy/">Политика конфиденциальности</a><br>
+    <a class="hopto-gradient" href="/terms/">Пользовательское соглашение</a><br>
+  </p>
+</footer>
+
+<script>
+const cookieNotice = document.getElementById('cookieNotice');
+const cookieAcceptBtn = document.getElementById('cookieAcceptBtn');
+
+function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + d.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/;SameSite=Lax";
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+function setLocalStorageWithExpiry(key, value, days) {
+    try {
+        const now = new Date();
+        const item = {
+            value: value,
+            expiry: now.getTime() + (days * 24 * 60 * 60 * 1000)
+        };
+        localStorage.setItem(key, JSON.stringify(item));
+    } catch (e) {}
+}
+
+function getLocalStorageWithExpiry(key) {
+    try {
+        const itemStr = localStorage.getItem(key);
+        if (!itemStr) return null;
+        
+        const item = JSON.parse(itemStr);
+        const now = new Date();
+        
+        if (now.getTime() > item.expiry) {
+            localStorage.removeItem(key);
+            return null;
+        }
+        return item.value;
+    } catch (e) {
+        return null;
+    }
+}
+
+function checkCookieConsent() {
+    if (getLocalStorageWithExpiry('cookieAccepted') === 'true') {
+        return true;
+    }
+
+    if (getCookie('cookieAccepted') === 'true') {
+        return true;
+    }
+
+    return false;
+}
+
+function initCookieNotice() {
+    if (!checkCookieConsent()) {
+        cookieNotice.classList.add('show');
+    } else {
+        cookieNotice.classList.remove('show');
+    }
+}
+
+window.addEventListener('pageshow', () => {
+    initCookieNotice();
+});
+
+cookieAcceptBtn.addEventListener('click', () => {
+    setLocalStorageWithExpiry('cookieAccepted', 'true', 5);
+    setCookie('cookieAccepted', 'true', 5);
+    cookieNotice.classList.remove('show');
+});
+
+const menuBtn = document.getElementById('menuBtn');
+const sideMenu = document.getElementById('sideMenu');
+
+menuBtn.addEventListener('click', () => {
+  sideMenu.classList.toggle('open');
+});
+
+document.addEventListener('click', (e) => {
+  if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+    sideMenu.classList.remove('open');
+  }
+});
+
+document.querySelector('.top-banner img').addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+const banner = document.querySelector('.top-banner img');
+
+banner.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+banner.addEventListener('dragstart', function(e) {
+    e.preventDefault();
+});
+
+const dots = document.getElementById('dots');
+const loader = document.getElementById('page-loader');
+
+let dotsCount = 0;
+
+const dotsAnimation = setInterval(() => {
+    dotsCount++;
+
+    dots.textContent = '.'.repeat(dotsCount);
+
+    if (dotsCount >= 3) {
+        clearInterval(dotsAnimation);
+
+        loader.classList.add('hide');
+
+        setTimeout(() => {
+            loader.remove();
+        }, 800);
+    }
+}, 600);
+
+function showNotify() {
+    const notify = document.getElementById('notify');
+
+    notify.classList.add('show');
+
+    clearTimeout(notify.timer);
+    notify.timer = setTimeout(() => {
+        notify.classList.remove('show');
+    }, 3000);
+}
+</script>
+
+</body>
+</html>
