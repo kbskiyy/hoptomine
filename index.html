@@ -809,7 +809,7 @@ body {
   <div class="button-container">
     <div class="minecraft-btn" id="addBtn" onclick="showNotify()">
       <span class="minecraft-text">ДОБАВИТЬ СЕРВЕР</span>
-      <button class="copy-btn" id="copyBtn" type="button" onclick="event.stopPropagation(); showNotify()">
+      <button class="copy-btn" id="copyBtn" type="button" onclick="event.preventDefault(); event.stopPropagation(); showNotify(); return false;">
         <img src="img/copy.png">
       </button>
     </div>
