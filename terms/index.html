@@ -340,6 +340,8 @@ body {
     position: fixed;
     top: 90px;
     right: 20px;
+    width: 320px;
+    max-width: calc(100vw - 40px);
     opacity: 0;
     visibility: hidden;
     transform: translateX(100px);
@@ -357,8 +359,8 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
-    width: 320px;
-    max-width: 320px;
+    width: 100%;
+    box-sizing: border-box;
     padding: 16px 20px;
     border-radius: 25px;
     background: rgb(34, 102, 8);
@@ -367,14 +369,6 @@ body {
     box-shadow:
         0 10px 35px rgba(0, 0, 0, 0.35),
         0 0 20px rgba(255, 80, 80, 0.15);
-}
-
-@media (max-width: 600px) {
-  .notify-content {
-    width: calc(100% - 40px);
-    max-width: 320px;
-    box-sizing: border-box;
-  }
 }
 
 .notify-content img {
