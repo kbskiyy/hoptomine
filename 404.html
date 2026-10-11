@@ -236,7 +236,7 @@ body {
 
 .permanent-notice {
   position: fixed;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   bottom: 20px;
   right: 20px;
   max-width: 380px;
@@ -252,6 +252,7 @@ body {
   z-index: 999999;
   animation: noticePulse 1s infinite alternate ease-in-out;
   box-sizing: border-box;
+  transition: 0.5s;
 }
 
 @keyframes noticePulse {
@@ -302,6 +303,7 @@ body {
     max-width: none;
     transform: none;
     padding: 16px;
+    transition: 0.5s;
   }
 }
 
@@ -310,6 +312,16 @@ body {
   height: 22px;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  cursor: pointer;
+    transition: 0.3s;
+}
+
+.permanent-notice-icon:hover {
+  transform: scale(1.09);
+}
+
+.permanent-notice-icon:active {
+  transform: scale(0.9);
 }
 </style>
 </head>
@@ -322,7 +334,7 @@ body {
       Внимание!
     </h3>
     <p class="permanent-notice-text">
-      Проект HOPTOMINE приостанавливает свою работу на неопределённый срок...<br>Мы искренне благодарим каждого из вас за преданность, поддержку и ту неповторимую уютную атмосферу, которую мы создавали вместе...<br>Благодарим, что были с нами!
+      Проект HOPTOMINE приостанавливает свою работу...<br>Мы искренне благодарим каждого из вас за преданность, поддержку и ту неповторимую уютную атмосферу, которую мы создавали вместе...<br>Благодарим, что были с нами!
     </p>
   </div>
 </div>
@@ -477,6 +489,18 @@ const dotsAnimation = setInterval(() => {
         }, 800);
     }
 }, 600);
+
+
+
+const pni = document.querySelector(".permanent-notice-icon");
+const pn = document.querySelector(".permanent-notice");
+
+pni.addEventListener("click", () => {
+  pn.style.opacity = "0";
+  setTimeout(() => {
+    pn.style.display = "none";
+  }, 300);
+});
 </script>
 
 </body>
