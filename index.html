@@ -737,6 +737,7 @@ body {
   z-index: 999999;
   animation: noticePulse 1s infinite alternate ease-in-out;
   box-sizing: border-box;
+  transition: 0.5s;
 }
 
 @keyframes noticePulse {
@@ -787,6 +788,7 @@ body {
     max-width: none;
     transform: none;
     padding: 16px;
+    transition: 0.5s;
   }
 }
 
@@ -795,6 +797,7 @@ body {
   height: 22px;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  cursor: pointer;
 }
 </style>
 </head>
@@ -807,7 +810,7 @@ body {
       Внимание!
     </h3>
     <p class="permanent-notice-text">
-      Проект HOPTOMINE приостанавливает свою работу на неопределённый срок...<br>Мы искренне благодарим каждого из вас за преданность, поддержку и ту неповторимую уютную атмосферу, которую мы создавали вместе...<br>Благодарим, что были с нами!
+      Эпоха HOPTOMINE подходит к концу: проект заморожен на неопределённый срок...<br>Нам будет искренне не хватать нашего комьюнити и истории, которую мы строили блок за блоком...<br>Примите нашу благодарность за то, что прошли этот путь с нами до конца.
     </p>
   </div>
 </div>
@@ -1131,6 +1134,18 @@ const ultradramAmount = document.getElementById('ultradramAmount');
 
 ultradramSlider.addEventListener('input', () => {
     ultradramAmount.textContent = ultradramSlider.value;
+});
+
+
+
+const pni = document.querySelector(".permanent-notice-icon");
+const pn = document.querySelector(".permanent-notice");
+
+pni.addEventListener("click", () => {
+  pn.style.opacity = "0";
+  setTimeout(() => {
+    pn.style.display = "none";
+  }, 300);
 });
 </script>
 
