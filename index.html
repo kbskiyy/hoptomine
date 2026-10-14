@@ -849,6 +849,7 @@ body {
   right: 10px;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.827);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  color: white;
 }
 
 .aubtn:hover {
@@ -861,7 +862,7 @@ body {
 
 @media (max-width: 768px) {
   .aboutus {
-    width: 50%;
+    width: 70%;
     right: 3%;
     height: 60px;
     transform: translateY(100px);
@@ -1212,16 +1213,19 @@ const dotsAnimation = setInterval(() => {
     }
 }, 600);
 
+let notifystatus = "off";
 function showNotify() {
     const notify = document.getElementById('notify');
 
     notify.classList.add('show');
     aboutus.style.transform = "translateY(100px)";
+    notifystatus = "on";
 
     clearTimeout(notify.timer);
     notify.timer = setTimeout(() => {
         notify.classList.remove('show');
         aboutus.style.transform = "translateY(0)";
+        notifystatus = "off";
     }, 3000);
 }
 
@@ -1254,7 +1258,11 @@ setTimeout(() => {
   aboutus.style.display = "flex";
   setTimeout(() => {
     aboutus.style.opacity = "1";
-    aboutus.style.transform = "translateX(0)";
+    if (notifystatus === "on") {
+      aboutus.style.transform = "translateY(100px) translateX(0px)";
+    } else {
+      aboutus.style.transform = "translateX(0px)";
+    }
   }, 200);
 }, 3000);
 
@@ -1266,7 +1274,11 @@ aubtn.addEventListener("click", () => {
   
   setTimeout(() => {
     aboutus.style.opacity = "0";
-    aboutus.style.transform = "translateX(200px)";
+    if (notifystatus === "on") {
+      aboutus.style.transform = "translateY(100px) translateX(200px)";
+    } else {
+      aboutus.style.transform = "translateX(200px)";
+    }
     setTimeout(() => {
       aboutus.style.display = "none";
       window.location.href = "aboutus";
