@@ -1188,16 +1188,20 @@ const dotsAnimation = setInterval(() => {
 let notifystatus = "off";
 function showNotify() {
     const notify = document.getElementById('notify');
-
-    notify.classList.add('show');
     aboutus.style.transform = "translateY(100px)";
-    notifystatus = "on";
+    setTimeout(() => {
+      notify.classList.add('show');
+      notifystatus = "on";
+    }, 200);
+  
 
     clearTimeout(notify.timer);
     notify.timer = setTimeout(() => {
         notify.classList.remove('show');
-        aboutus.style.transform = "translateY(0)";
-        notifystatus = "off";
+        setTimeout(() => {
+          aboutus.style.transform = "translateY(0)";
+          notifystatus = "off";
+        }, 200);
     }, 3000);
 }
 
