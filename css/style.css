@@ -349,7 +349,7 @@ body {
   flex-direction: column;
   gap: 10px;
   transition: left 0.3s ease;
-  z-index: 1000000 !important;
+  z-index: 10000000 !important;
   box-shadow: 4px 0 20px rgba(0,0,0,0.6);
 }
 
