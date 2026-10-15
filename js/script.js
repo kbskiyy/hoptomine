@@ -164,15 +164,15 @@ let intv;
 let antispam = 0;
 
 function showNotify() {
-    clearTimeout(timeras);
-    timeras = setTimeout(() => {
-        antispam = 0;
-    }, 4000);
+    if (asdiv.style.display !== "flex") {
+        clearTimeout(timeras);
+        timeras = setTimeout(() => {
+            antispam = 0;
+        }, 4000);
 
-    antispam += 1;
+        antispam += 1;
 
-    if (antispam >= 3) {
-        if (asdiv.style.display !== "flex") {
+        if (antispam >= 3) {
             asdiv.style.display = "flex";
             prpr = 0;
             pr.style.width = "0%";
@@ -198,7 +198,11 @@ function showNotify() {
                     }
                 }, 100);
             }, 200);
+            return;
         }
+    }
+
+    if (asdiv.style.display === "flex") {
         return;
     }
 
