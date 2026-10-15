@@ -444,9 +444,13 @@ body {
 
 .project-info-container {
   max-width: 800px;
-  margin: 20px auto 100px auto;
+  left: 50%;
+  top: 20px;
+  margin-bottom: 50px;
+  transform: translateX(-50%);
   padding: 0 20px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .project-info-card {
@@ -473,15 +477,20 @@ body {
 
 .project-info-card p {
   font-size: 14px;
-  font-weight: 200;
+  font-weight: 900;
   line-height: 1.6;
   color: #e0e0e0;
   margin: 0 0 15px 0;
   text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
-.project-info-card p:last-child {
-  margin-bottom: 0;
+.hmstamp {
+  width: 150px;
+  height: auto;
+  position: absolute;
+  right: 50px;
+  top: 90px;
+  rotate: -50deg;
 }
 </style>
 </head>
@@ -544,6 +553,7 @@ body {
 
 <div class="project-info-container">
   <div class="project-info-card">
+  <img src="../img/hmstamp.png" class="hmstamp" alt="Хоптомайновская-Печать">
     <h2>Полная история проекта HOPTOMINE</h2>
     <p>Наш проект начал свою славную и насыщенную историю ещё в далёком августе 2021 года. За прошедшие почти 5 лет непрерывной работы - вплоть до июля 2026 года - HOPTOMINE прошёл поистине монументальный и уникальный путь развития, ставший яркой страницей в сообществе Minecraft.</p>
     <p>За всё это время проект прошёл через пять поколений. Текущая итерация являлась пятой по счёту и заслуженно считалась самым успешным проектом за всю историю. Каждые из предыдущих четырёх проектов были важными ступенями, ценным опытом и этапами, которые вели нас к этому триумфу, формируя неповторимый игровой опыт.</p>
@@ -663,12 +673,21 @@ document.querySelector('.top-banner img').addEventListener('contextmenu', functi
 });
 
 const banner = document.querySelector('.top-banner img');
+const hmstamp = document.querySelector('.project-info-card img');
 
 banner.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 });
 
 banner.addEventListener('dragstart', function(e) {
+    e.preventDefault();
+});
+
+hmstamp.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+hmstamp.addEventListener('dragstart', function(e) {
     e.preventDefault();
 });
 
