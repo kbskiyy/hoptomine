@@ -317,7 +317,7 @@ body {
   justify-content: space-between;
 
   cursor: pointer;
-  z-index: 10000000;
+  z-index: 1000000000;
 
   margin: 0;
 
