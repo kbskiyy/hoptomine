@@ -813,7 +813,7 @@ body {
   background-color: green;
   border-radius: 20px;
   border: 3px solid white;
-  width: 23%;
+  width: 340px;
   height: 50px;
   display: none;
   transform: translateX(500px);
@@ -825,13 +825,14 @@ body {
   right: 20px;
   transition: 0.4s;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  z-index: 99;
 }
 
 .aulogo {
   position: absolute;
   left: 22px;
   transition: 0.4s;
-  width: 120px;
+  width: 46%;
   height: auto;
   filter: drop-shadow(0px 15px 10px rgba(0, 0, 0, 0.6));
 }
@@ -858,34 +859,6 @@ body {
 
 .aubtn:active {
   transform: scale(0.9);
-}
-
-@media (max-width: 768px) {
-  .aboutus {
-    width: 66%;
-    right: 20px;
-    height: 60px;
-    transform: translateY(100px);
-    z-index: 99;
-  }
-
-  .aboutus.active, 
-  .aboutus[style*="display: flex"], 
-  .aboutus[style*="display: block"] {
-    transform: translateY(0);
-  }
-
-  .aulogo {
-    width: 100px;
-    left: 13px;
-  }
-
-  .aubtn {
-    width: 110px;
-    height: 40px;
-    font-size: 13px;
-    right: 10px;
-  }
 }
 </style>
 </head>
@@ -1183,14 +1156,13 @@ document.addEventListener('click', (e) => {
 });
 
 const banner = document.querySelector('.top-banner img');
+const aulogo = document.querySelector(".aulogo");
 
-banner.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-});
+banner.addEventListener('contextmenu', e => e.preventDefault());
+banner.addEventListener('dragstart', e => e.preventDefault());
 
-banner.addEventListener('dragstart', function(e) {
-    e.preventDefault();
-});
+aulogo.addEventListener('contextmenu', e => e.preventDefault());
+aulogo.addEventListener('dragstart', e => e.preventDefault());
 
 const dots = document.getElementById('dots');
 const loader = document.getElementById('page-loader');
@@ -1251,7 +1223,6 @@ pni.addEventListener("click", () => {
 
 
 const aboutus = document.querySelector(".aboutus");
-const aulogo = document.querySelector(".aulogo");
 const aubtn = document.querySelector(".aubtn");
 
 setTimeout(() => {
@@ -1269,8 +1240,13 @@ setTimeout(() => {
 aubtn.addEventListener("click", () => {
   aulogo.style.opacity = "0";
   setTimeout(() => {
-    aubtn.style.width = "90%";
-  }, 500);
+    aubtn.style.width = "50%";
+    aubtn.style.right = "50%";
+    aubtn.style.transform = "translateX(50%)";
+    setTimeout(() => {
+      aubtn.style.width = "90%";
+    }, 200);
+  }, 200);
   
   setTimeout(() => {
     aboutus.style.opacity = "0";
