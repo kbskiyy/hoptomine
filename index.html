@@ -60,7 +60,7 @@ body {
 }
 
 .server-status { font-weight: 100%; font-size: 13px; margin: 0 0 0 25px; letter-spacing: 0.3px; text-shadow: 0 0 8px rgba(204,50,0,0.7); }
-.online-text, .offline-text, .checking-text { background: linear-gradient(135deg, #cc0028, #ff6500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; text-shadow: 0 0 8px rgba(204,50,0,0.7); display:inline-block; }
+.online-text, .offline-text, .checking-text { background: linear-gradient(135deg, #cc0028, #ff6500); background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; text-shadow: 0 0 8px rgba(204,50,0,0.7); display:inline-block; }
 .checking-text::after { content: ''; display:inline-block; width:1ch; animation: dots 1.5s steps(5,end) infinite; }
 @keyframes dots { 0%,30%{content:'';} 60%{content:'.';} 90%{content:'..';} 99%{content:'...';} 100%{content:'';} }
 .server-progress-bg { width: 65%; height: 8px; margin: 8px 0 16px 20px; background: rgba(0,0,0,0.25); border-radius: 10px; overflow: hidden; position: relative; backdrop-filter: blur(4px); box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
@@ -183,7 +183,7 @@ body {
 .site-footer { font-weight:900; font-size:10px; color:white; text-align:center; padding:28px 0 24px 0; text-shadow:0 3px 6px rgba(0,0,0,0.6),0 0 2px rgba(0,0,0,0.05); background:rgba(0,0,0,.28); backdrop-filter:blur(6px); border-top:2px solid rgba(255,255,255,.22); box-shadow:0 4px 16px rgba(0,0,0,.4); letter-spacing:0.4px; margin-top:20px; }
 .hopto-gradient {
     background: linear-gradient(135deg,#33bd0d,#6fff24);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 900;
     text-decoration: none;
