@@ -1050,6 +1050,12 @@ body {
     cursor: progress;
 }
 
+@media (max-width: 768px) {
+  .antispamdiv {
+    width: 60%;
+  }
+}
+
 .pr {
     position: absolute;
     background-color: red;
