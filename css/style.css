@@ -317,7 +317,7 @@ body {
   justify-content: space-between;
 
   cursor: pointer;
-  z-index: 1000000000;
+  z-index: 100000;
 
   margin: 0;
 
@@ -349,7 +349,7 @@ body {
   flex-direction: column;
   gap: 10px;
   transition: left 0.3s ease;
-  z-index: 10000000 !important;
+  z-index: 10000;
   box-shadow: 4px 0 20px rgba(0,0,0,0.6);
 }
 
@@ -469,7 +469,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 99999999999;
+    z-index: 99999999;
     opacity: 1;
     transition: opacity 0.8s ease;
 }
@@ -1034,7 +1034,7 @@ body {
 }
 
 .antispamdiv {
-    background: linear-gradient(50deg, green, rgb(2, 106, 2));
+    background: linear-gradient(50deg, green, rgb(6, 145, 6));
     border: 2px solid white;
     border-radius: 40px;
     width: 40%;
@@ -1045,7 +1045,6 @@ body {
     left: 50%;
     transform: translateX(-50%) translateY(-200px);
     z-index: 999;
-    overflow: hidden;
     transition: opacity 0.5s, transform 0.5s;
     cursor: progress;
 }
@@ -1064,4 +1063,27 @@ body {
     width: 0%;
     left: 0;
     transition: width 0.3s ease-out;
+    animation: miganie 1s ease-in infinite alternate;
+}
+
+.tochka {
+  position: absolute;
+  background-color: rgb(234, 208, 9);
+  width: 5px;
+  height: 5px;
+  border-radius: 50px;
+  border: 2px solid white;
+  top: 10%;
+  left: -14px;
+  animation: miganie 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes miganie {
+  0% {
+    background-color: rgb(234, 80, 9);
+  }
+
+  100% {
+    background-color: rgb(234, 35, 9);
+  }
 }
