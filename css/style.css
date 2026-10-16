@@ -554,7 +554,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    z-index: 1000000;
+    z-index: 999;
     pointer-events: none;
 }
 
@@ -814,9 +814,9 @@ body {
   height: 50px;
   display: none;
   transform: translateX(500px);
-  opacity: 0;
   justify-content: center;
   align-items: center;
+  opacity: 0;
   position: fixed;
   gap: 5px;
   right: 20px;
@@ -1044,7 +1044,7 @@ body {
     opacity: 0;
     left: 50%;
     transform: translateX(-50%) translateY(-200px);
-    z-index: 999;
+    z-index: 9999;
     transition: opacity 0.5s, transform 0.5s;
     cursor: progress;
 }
