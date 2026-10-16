@@ -224,7 +224,9 @@ function showNotify() {
     notifyContainer.appendChild(notify);
 
     setTimeout(() => {
-      notify.classList.add('show');
+      setTimeout(() => {
+        notify.classList.add('show');
+      }, 200);
       updateAboutUsPosition();
     }, 50);
 
@@ -267,7 +269,7 @@ if (aboutus) {
         aboutus.style.opacity = "1";
         updateAboutUsPosition();
       }, 200);
-    }, 3000);
+    }, 1000);
 }
 
 if (aubtn && aboutus) {
