@@ -1157,8 +1157,8 @@ button, input {
   position: fixed;
   width: auto;
   height: auto;
-  right: 8px;
-  transform: rotate(-90deg);
+  left: 3px;
+  transform: rotate(90deg);
   transform-origin: right bottom;
   top: 210px;
   opacity: 0;
