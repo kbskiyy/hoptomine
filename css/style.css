@@ -7,10 +7,12 @@
   linear-gradient(135deg, #d34300d4, #f40000d4);
 }
 
+* {
+  font: 900 15px Montserrat, sans-serif;
+}
 body {
   margin-top: 80px;
   padding: 8px;
-  font-size: 14px;
   font: 900 15px Montserrat, sans-serif;
   background: transparent;
   background-color: #121212;
