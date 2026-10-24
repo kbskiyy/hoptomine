@@ -25,12 +25,6 @@ body {
   background-attachment: fixed;
 }
 
-button, input {
-  font: inherit;
-  color: inherit;
-  outline: none;
-}
-
 ::-webkit-scrollbar {
   width: 6px;
 }
