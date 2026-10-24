@@ -11,7 +11,7 @@ body {
   margin-top: 80px;
   padding: 8px;
   font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
+  font: 900 15px Montserrat, sans-serif;
   background: transparent;
   background-color: #121212;
   color: white;
@@ -22,6 +22,11 @@ body {
   background-attachment: fixed;
 }
 
+button, input {
+  font: inherit;
+  color: inherit;
+  outline: none;
+}
 
 ::-webkit-scrollbar {
   width: 6px;
