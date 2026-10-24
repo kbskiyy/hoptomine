@@ -407,7 +407,7 @@ button, input {
   left: 0;
 }
 
-.top-banner, .top-banner404 {
+.top-banner {
   position: fixed;
   top: 0;
   left: 0;
@@ -419,7 +419,7 @@ button, input {
   align-items: center;
 }
 
-.top-banner img, .top-banner404 img {
+.top-banner img {
   width: 50%;
   max-width: 300px;
   height: auto;
@@ -1095,25 +1095,6 @@ button, input {
   .top-banner {
     padding-left: 20px;
   }
-  
-  .top-banner404 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 10px;
-    align-items: center;
-}
-
-  .top-banner404 img {
-    width: 50%;
-    max-width: 300px;
-    height: auto;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.15));
-}
 
   .side-menu {
     position: fixed;
