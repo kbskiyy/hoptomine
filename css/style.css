@@ -13,6 +13,11 @@
   font-weight: 900;
 }
 
+div,
+div * {
+  font-weight: 900 !important;
+}
+
 body {
   margin-top: 80px;
   padding: 8px;
