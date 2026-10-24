@@ -8,7 +8,7 @@
 }
 
 * {
-  font: 900 15px Montserrat, sans-serif;
+  font: 900 15px Montserrat, sans-serif !inherit;
 }
 
 body {
