@@ -487,7 +487,7 @@ button, input {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 99999999;
+    z-index: 99999999999;
     opacity: 1;
     transition: opacity 0.8s ease;
 }
