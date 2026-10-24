@@ -8,7 +8,9 @@
 }
 
 * {
-  font: 900 15px Montserrat, sans-serif !inherit;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
 }
 
 body {
