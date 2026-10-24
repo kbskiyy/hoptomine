@@ -407,7 +407,7 @@ button, input {
   left: 0;
 }
 
-.top-banner {
+.top-banner, .top-banner404 {
   position: fixed;
   top: 0;
   left: 0;
@@ -419,7 +419,7 @@ button, input {
   align-items: center;
 }
 
-.top-banner img {
+.top-banner img, .top-banner404 img {
   width: 50%;
   max-width: 300px;
   height: auto;
