@@ -345,10 +345,6 @@ button, input {
   transition: 0.4s;
 }
 
-.menu-btn.toggle {
-  transform: rotate(180deg);
-}
-
 .menu-btn span {
   display: block;
   height: 4px;
@@ -358,8 +354,16 @@ button, input {
   box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
+.menu-btn.toggle {
+  transform: rotate(180deg);
+}
+
 .menu-btn:hover {
   transform: scale(1.05);
+}
+
+.menu-btn.toggle:hover {
+  transform: rotate(180deg) scale(1.05);
 }
 
 .side-menu {
