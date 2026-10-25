@@ -313,6 +313,8 @@ if (aubtn && aboutus) {
 const scroll = document.querySelector(".scroll");
 const btnscroll = document.querySelector(".btnscroll");
 
+if (scroll && btnscroll) {
+
 let isScrollingUp = false;
 
 window.addEventListener("scroll", () => {
@@ -351,3 +353,4 @@ btnscroll.addEventListener("click", () => {
         isScrollingUp = false;
     }, 600);
 });
+}
