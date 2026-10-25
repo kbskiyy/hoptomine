@@ -89,6 +89,7 @@ const sideMenu = document.getElementById('sideMenu');
 if (menuBtn && sideMenu) {
     menuBtn.addEventListener('click', () => {
         sideMenu.classList.toggle('open');
+        menuBtn.classList.toggle('toggle');
     });
 
     document.addEventListener('click', (e) => {
