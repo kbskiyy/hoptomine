@@ -87,17 +87,21 @@ const menuBtn = document.getElementById('menuBtn');
 const sideMenu = document.getElementById('sideMenu');
 
 if (menuBtn && sideMenu) {
-    menuBtn.addEventListener('click', () => {
-        sideMenu.classList.toggle('open');
-        menuBtn.classList.toggle('toggle');
-    });
+  menuBtn.addEventListener('click', () => {
+    const isOpen = menuBtn.classList.toggle('toggle');
 
-    document.addEventListener('click', (e) => {
-        if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-            sideMenu.classList.remove('open');
-            menuBtn.classList.remove('toggle');
-        }
-    });
+    sideMenu.classList.toggle('open', isOpen);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (
+      !sideMenu.contains(e.target) &&
+      !menuBtn.contains(e.target)
+    ) {
+      sideMenu.classList.remove('open');
+      menuBtn.classList.remove('toggle');
+    }
+  });
 }
 
 const banner = document.querySelector('.top-banner img');
