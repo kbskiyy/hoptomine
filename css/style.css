@@ -329,7 +329,6 @@ button, input {
   position: fixed;
   top: 20px;
   left: 20px;
-
   width: 30px;
   height: 20px;
 
@@ -339,10 +338,14 @@ button, input {
 
   cursor: pointer;
   z-index: 100000;
-
   margin: 0;
 
-  transition: 0.4s;
+  transform: rotate(0deg);
+  transition: transform 0.4s ease;
+}
+
+.menu-btn.toggle {
+  transform: rotate(180deg);
 }
 
 .menu-btn span {
@@ -351,19 +354,17 @@ button, input {
   width: 100%;
   background: white;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-.menu-btn.toggle {
-  transform: rotate(180deg);
-}
+@media (hover: hover) and (pointer: fine) {
+  .menu-btn:hover {
+    transform: scale(1.05);
+  }
 
-.menu-btn:hover {
-  transform: scale(1.05);
-}
-
-.menu-btn.toggle:hover {
-  transform: rotate(180deg) scale(1.05);
+  .menu-btn.toggle:hover {
+    transform: rotate(180deg) scale(1.05);
+  }
 }
 
 .side-menu {
