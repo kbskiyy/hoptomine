@@ -1153,7 +1153,7 @@ button, input {
   top: 210px;
   opacity: 0;
   transition: 0.5s;
-  z-index: 9999999999;
+  z-index: 9999;
 }
 
 .btnscroll {
