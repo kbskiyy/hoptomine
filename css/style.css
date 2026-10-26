@@ -730,17 +730,17 @@ button, input {
   bottom: 20px;
   right: 20px;
   max-width: 380px;
-  width: calc(100% - 40px);
+  width: 400px;
+  height: 210px;
   padding: 20px;
   background: rgba(18, 18, 18, 0.85);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 3px solid #ff4800;
-  border-radius: 25px;
+  border-radius: 20px 35px 20px 35px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 72, 0, 0.2);
   color: white;
   z-index: 999999;
-  animation: noticePulse 1s infinite alternate ease-in-out;
+  animation: noticePulse 0.5s infinite alternate ease-in-out;
   box-sizing: border-box;
   transition: 0.5s;
 }
