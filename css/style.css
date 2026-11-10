@@ -21,14 +21,11 @@ body {
   margin-top: 80px;
   padding: 8px;
   font: 900 15px Montserrat, sans-serif;
-  background: transparent;
-  background-color: #121212;
   color: white;
   background: var(--bgcolor);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 ::-webkit-scrollbar {
